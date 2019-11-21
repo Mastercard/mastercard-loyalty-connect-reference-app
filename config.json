@@ -1,0 +1,8 @@
+{ 
+    "groupId" : "com.mastercard.developer",
+    "artifactId" : "loyalty-connect-client",
+    "artifactVersion" : "1.0.0",
+    "invokerPackage" : "com.mastercard.developer.loyalty-connect-client",
+    "apiPackage" : "com.mastercard.developer.loyalty-connect-client.api",
+    "modelPackage" : "com.mastercard.developer.loyalty-connect-client.model"
+}

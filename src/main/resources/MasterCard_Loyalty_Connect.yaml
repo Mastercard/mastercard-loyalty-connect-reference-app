@@ -1,0 +1,1419 @@
+swagger: '2.0'
+info:
+  description: Rest Service for linking payment cards with loyalty programme
+  version: '1.0'
+  title: Mastercard Loyalty Connect Service
+  termsOfService: 'https://developer.mastercard.com/terms-of-use'
+  contact:
+    name: Mastercard Developer Zone
+    url: 'https://developer.mastercard.com'
+    email: apisupport@mastercard.com
+  license:
+    name: Mastercard Developer Zone Support
+    url: 'https://developer.mastercard.com/support'
+  x-artifactId: mastercard-loyalty-connect
+host: 'api.mastercard.com'
+basePath: /mlc/api
+tags:
+  - name: LoyaltyConnect
+    description: Operations related to loyalty connect
+  - name: Member
+    description: Operations related to a member
+  - name: MemberMerchant
+    description: Operations related to member merchant
+  - name: Merchant
+    description: Operations related to merchants
+  - name: PaymentCard
+    description: Operations related to payment card
+  - name: Transaction
+    description: Operations related to transactions
+paths:
+  /loyalty-ids/searches:
+    post:
+      tags:
+        - Transaction
+      summary: Get loyalty id
+      description: Returns the Loyalty ID connected with a payment card for a specific Merchant. This API is called when a Member transacts using a payment card connected in MLC at a participating Merchant store.
+      operationId: getLoyaltyId
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: transaction
+          description: The payment card number and merchant code / identifier must be provided in the request body to retrieve the Loyalty ID
+          required: true
+          schema:
+            $ref: '#/definitions/Transaction'
+      responses:
+        '200':
+          description: Successfully returned loyalty id
+          schema:
+            $ref: '#/definitions/TransactionResponse'
+        '400':
+          description: Invalid Request
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized access to information
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Service not available
+          schema:
+            $ref: '#/definitions/Error'
+      x-action: getLoyaltyId
+  /members:
+    post:
+      tags:
+        - Member
+      summary: Enroll a member
+      description: Enrolls a new member in MLC. Every member is identified by the business partner (partner code) and member identifier (user id). The member may or may not provide other demographic information for enrollment.
+      operationId: enrollMember
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: X-Merchant-Key
+          in: header
+          description: Key assigned to a 'Merchant' Business Partner at the time of onboarding
+          required: false
+          type: string
+          default: 108d9290-5516-4235-ac0d-fddb04c6b003
+        - in: body
+          name: memberDetails
+          description: In order to enroll a member, the partner code, user type and user ID attributes must be provided along with other optional demographic data attributes. The user type can be either 'BANK_CUSTOMER_NUMBER' or 'MERCHANT_LOYALTY_ID' depending on the business partner setup.
+          required: true
+          schema:
+            $ref: '#/definitions/Member'
+      responses:
+        '201':
+          description: Successfully enrolled a member
+          schema:
+            $ref: '#/definitions/MemberMerchantResponse'
+        '400':
+          description: Invalid Request
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized access to information
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Service not available
+          schema:
+            $ref: '#/definitions/Error'
+      x-action: memberEnrollment
+  '/members/{member_reference_id}':
+    get:
+      tags:
+        - Member
+      summary: Get a Member
+      description: Returns the demographic information related to the existing MLC Member.
+      operationId: getMember
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: X-Merchant-Key
+          in: header
+          description: Key assigned to a 'Merchant' Business Partner at the time of onboarding
+          required: false
+          type: string
+          default: 108d9290-5516-4235-ac0d-fddb04c6b003
+        - name: member_reference_id
+          in: path
+          description: Unique reference key for a member
+          required: true
+          type: string
+          default: kT87TFbPtw6z100047
+      responses:
+        '200':
+          description: Member is successfully retrieved
+          schema:
+            $ref: '#/definitions/MemberResponse'
+        '400':
+          description: Member reference id not found
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized access to information
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Service not available
+          schema:
+            $ref: '#/definitions/Error'
+      x-action: getMember
+    put:
+      tags:
+        - Member
+      summary: Update a member
+      description: Updates the demographic information for an existing member in MLC. The member may or may not provide all demographic information.
+      operationId: updateMember
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: X-Merchant-Key
+          in: header
+          description: Key assigned to a 'Merchant' Business Partner at the time of onboarding
+          required: false
+          type: string
+          default: 108d9290-5516-4235-ac0d-fddb04c6b003
+        - name: member_reference_id
+          in: path
+          description: Unique reference key for a member
+          required: true
+          type: string
+          default: kT87TFbPtw6z100047
+        - in: body
+          name: memberDetails
+          description: In order to update the demographic information for a member, the unique reference key must be provided. The member must be an existing one in MLC based on the unique reference key. The member may or may not provide all demographic information for update.
+          required: true
+          schema:
+            $ref: '#/definitions/MemberDetails'
+      responses:
+        '204':
+          description: Member is updated successfully
+        '400':
+          description: Member does not exist
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized access to information
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Service not available
+          schema:
+            $ref: '#/definitions/Error'
+      x-action: updateMember
+    delete:
+      tags:
+        - Member
+      summary: Delete a member
+      description: This API is called when an existing member opts out of MLC. All information related to the member is deleted whenever this API is called.
+      operationId: deleteMember
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: X-Merchant-Key
+          in: header
+          description: Key assigned to a 'Merchant' Business Partner at the time of onboarding
+          required: false
+          type: string
+          default: 108d9290-5516-4235-ac0d-fddb04c6b003
+        - name: member_reference_id
+          in: path
+          description: Unique reference key for a member
+          required: true
+          type: string
+          default: kT87TFbPtw6z100047
+      responses:
+        '202':
+          description: Member is successfully deleted
+        '400':
+          description: Member reference id not found
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized access to information
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Service not available
+          schema:
+            $ref: '#/definitions/Error'
+      x-action: deleteMember
+  '/members/{member_reference_id}/loyalty-connects':
+    get:
+      tags:
+        - LoyaltyConnect
+      summary: Get payment card and Loyalty ID connection details for a member
+      description: Returns all payment card and Loyalty ID connections for the member. If the member wants to view the payment cards connected for a specific Loyalty ID, then the member merchant reference key must be provided. If the member wants to view the Loyalty IDs connected for a specific payment card, then the payment card reference key must be provided.
+      operationId: getLoyaltyConnects
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: X-Merchant-Key
+          in: header
+          description: Key assigned to a 'Merchant' Business Partner at the time of onboarding
+          required: false
+          type: string
+          default: 108d9290-5516-4235-ac0d-fddb04c6b003
+        - name: member_reference_id
+          in: path
+          description: Unique reference key for a member
+          required: true
+          type: string
+          default: kT87TFbPtw6z100047
+        - name: member_merchant_reference_id
+          in: query
+          description: Unique reference key that identifies member and merchant loyalty program association
+          required: false
+          type: string
+          default: 3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0
+        - name: payment_card_reference_id
+          in: query
+          description: Unique reference key for a member's payment card
+          required: false
+          type: string
+          default: 5f0d07c1-6fc4-4e74-9152-0e20bb7104d9
+      responses:
+        '200':
+          description: Loyalty Connects are successfully fetched
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LoyaltyConnectResponse'
+        '400':
+          description: Payment Card or Member Merchant should not be blank
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized access to information
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Service not available
+          schema:
+            $ref: '#/definitions/Error'
+      x-action: getLoyaltyConnects
+    post:
+      tags:
+        - LoyaltyConnect
+      summary: Connects payment card and Loyalty ID for a member
+      description: Connects a member's payment card with Loyalty ID. The member must have the payment card and Loyalty ID enrolled before making this connection.
+      operationId: enrollLoyaltyConnect
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: X-Merchant-Key
+          in: header
+          description: Key assigned to a 'Merchant' Business Partner at the time of onboarding
+          required: false
+          type: string
+          default: 108d9290-5516-4235-ac0d-fddb04c6b003
+        - name: member_reference_id
+          in: path
+          description: Unique reference key for a member
+          required: true
+          type: string
+          default: kT87TFbPtw6z100047
+        - in: body
+          name: loyaltyConnect
+          description: Contains payment card and loyalty program details
+          required: true
+          schema:
+            $ref: '#/definitions/LoyaltyConnect'
+      responses:
+        '201':
+          description: Successfully connected payment card to loyalty
+          schema:
+            $ref: '#/definitions/EnrollLoyaltyConnectResponse'
+        '400':
+          description: Invalid Request
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized access to information
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Service not available
+          schema:
+            $ref: '#/definitions/Error'
+      x-action: loyaltyConnectEnrollment
+  '/members/{member_reference_id}/loyalty-connects/{loyalty_connect_reference_id}':
+    get:
+      tags:
+        - LoyaltyConnect
+      summary: Get a specific Loyalty ID and payment card connection details for a member
+      description: Returns the Loyalty ID and payment card details for a member if the Loyalty ID exists as connected with the payment card based on the unique reference key for the connection.
+      operationId: getLoyaltyConnect
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: X-Merchant-Key
+          in: header
+          description: Key assigned to a 'Merchant' Business Partner at the time of onboarding
+          required: false
+          type: string
+          default: 108d9290-5516-4235-ac0d-fddb04c6b003
+        - name: member_reference_id
+          in: path
+          description: Unique reference key for a member
+          required: true
+          type: string
+          default: kT87TFbPtw6z100047
+        - name: loyalty_connect_reference_id
+          in: path
+          description: Unique reference key for the connection of a loyalty ID and payment card
+          required: true
+          type: string
+          default: f962ad86-d408-467c-8b74-14983569d36c
+      responses:
+        '200':
+          description: Loyalty Connect is successfully fetched
+          schema:
+            $ref: '#/definitions/LoyaltyConnectResponse'
+        '400':
+          description: Loyalty Connect Reference Id should not be blank
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized access to information
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Service not available
+          schema:
+            $ref: '#/definitions/Error'
+      x-action: getLoyaltyConnect
+    delete:
+      tags:
+        - LoyaltyConnect
+      summary: Disconnects a specific payment card and Loyalty ID for a member
+      description: Delete a specific Loyalty ID and payment card connection for a member based on the unique reference key for the connection.
+      operationId: deleteLoyaltyConnect
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: X-Merchant-Key
+          in: header
+          description: Key assigned to a 'Merchant' Business Partner at the time of onboarding
+          required: false
+          type: string
+          default: 108d9290-5516-4235-ac0d-fddb04c6b003
+        - name: member_reference_id
+          in: path
+          description: Unique reference key for a member
+          required: true
+          type: string
+          default: kT87TFbPtw6z100047
+        - name: loyalty_connect_reference_id
+          in: path
+          description: Unique reference key for the connection of a loyalty ID and payment card
+          required: true
+          type: string
+          default: f962ad86-d408-467c-8b74-14983569d36c
+      responses:
+        '202':
+          description: Loyalty Connect successfully deleted
+        '400':
+          description: Loyalty Connect Reference Id should not be blank
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized access to information
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Service not available
+          schema:
+            $ref: '#/definitions/Error'
+      x-action: loyaltyConnectDelete
+  '/members/{member_reference_id}/loyalty-programs':
+    get:
+      tags:
+        - MemberMerchant
+      summary: Get loyalty programs for a member
+      description: Returns all loyalty programs in which the member is enrolled. If the member wants to view the details for a specific Merchant Loyalty program the member is enrolled in, then merchant code and Loyalty ID must be provided.
+      operationId: getAllMemberMerchantLoyaltyProgram
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: X-Merchant-Key
+          in: header
+          description: Key assigned to a 'Merchant' Business Partner at the time of onboarding
+          required: false
+          type: string
+          default: 108d9290-5516-4235-ac0d-fddb04c6b003
+        - name: member_reference_id
+          in: path
+          description: Unique reference key for a member
+          required: true
+          type: string
+          default: kT87TFbPtw6z100047
+        - name: loyalty_id
+          in: query
+          description: Loyalty Id represents unique member merchant association
+          required: false
+          type: string
+          default: vk@mastercard.com
+        - name: merchant_code
+          in: query
+          description: Unique code assigned to a merchant on boarded with MLC
+          required: false
+          type: string
+          default: MLCMerchant
+      responses:
+        '200':
+          description: Successfully filtered merchant loyalty program
+          schema:
+            $ref: '#/definitions/MerchantLoyaltyProgramSearchResponse'
+        '400':
+          description: Member not found
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized access to information
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Service not available
+          schema:
+            $ref: '#/definitions/Error'
+      x-action: getAllMemberMerchantLoyaltyProgram
+    post:
+      tags:
+        - MemberMerchant
+      summary: Enroll a member in a Merchant Loyalty Program
+      description: Enrolls the member in a Merchant Loyalty Program. Alternately, the member can connect an existing Loyalty ID for the Merchant Loyalty Program.
+      operationId: joinOrConnectMerchantLoyaltyProgram
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: X-Merchant-Key
+          in: header
+          description: Key assigned to a 'Merchant' Business Partner at the time of onboarding
+          required: false
+          type: string
+          default: 108d9290-5516-4235-ac0d-fddb04c6b003
+        - name: member_reference_id
+          in: path
+          description: Unique reference key for a member
+          required: true
+          type: string
+          default: kT87TFbPtw6z100047
+        - in: body
+          name: merchantLoyaltyProgram
+          description: Contains merchant loyalty program details
+          required: true
+          schema:
+            $ref: '#/definitions/MerchantLoyaltyProgram'
+      responses:
+        '201':
+          description: Successfully joined/connected in Merchant Loyalty Program
+          schema:
+            $ref: '#/definitions/MerchantLoyaltyProgramResponse'
+        '400':
+          description: Invalid Request
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized access to information
+          schema:
+            $ref: '#/definitions/Error'
+        '409':
+          description: Member has already joined/connected to merchant loyalty program
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Service not available
+          schema:
+            $ref: '#/definitions/Error'
+      x-action: memberMerchantEnrollment
+  '/members/{member_reference_id}/loyalty-programs/{member_merchant_reference_id}':
+    get:
+      tags:
+        - MemberMerchant
+      summary: Get details for a specific Merchant Loyalty Program
+      description: Returns Loyalty ID and point balance for a specific Merchant Loyalty Program associated with the member.
+      operationId: getMemberMerchantLoyaltyProgram
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: X-Merchant-Key
+          in: header
+          description: Key assigned to a 'Merchant' Business Partner at the time of onboarding
+          required: false
+          type: string
+          default: 108d9290-5516-4235-ac0d-fddb04c6b003
+        - name: member_reference_id
+          in: path
+          description: Unique reference key for a member
+          required: true
+          type: string
+          default: kT87TFbPtw6z100047
+        - name: member_merchant_reference_id
+          in: path
+          description: Unique reference key that identifies member and merchant loyalty program association
+          required: true
+          type: string
+          default: 3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0
+      responses:
+        '200':
+          description: Merchant loyalty program retrieved successfully
+          schema:
+            $ref: '#/definitions/MemberMerchantLoyaltyDetails'
+        '400':
+          description: Member reference id not found
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized access to information
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Service not available
+          schema:
+            $ref: '#/definitions/Error'
+      x-action: getMemberMerchantLoyaltyProgram
+    delete:
+      tags:
+        - MemberMerchant
+      summary: Disconnect a loyalty program for a member
+      description: Deletes an existing Member and Merchant Loyalty Program association
+      operationId: deleteMemberMerchantLoyaltyProgram
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: X-Merchant-Key
+          in: header
+          description: Key assigned to a 'Merchant' Business Partner at the time of onboarding
+          required: false
+          type: string
+          default: 108d9290-5516-4235-ac0d-fddb04c6b003
+        - name: member_reference_id
+          in: path
+          description: Unique reference key for a member
+          required: true
+          type: string
+          default: kT87TFbPtw6z100047
+        - name: member_merchant_reference_id
+          in: path
+          description: Unique reference key that identifies member and merchant loyalty program association
+          required: true
+          type: string
+          default: 3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0
+      responses:
+        '202':
+          description: Merchant loyalty program deleted successfully
+        '400':
+          description: Member reference id not found
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized access to information
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Service not available
+          schema:
+            $ref: '#/definitions/Error'
+      x-action: deleteMemberMerchantLoyaltyProgram
+  '/members/{member_reference_id}/loyalty-programs/{member_merchant_reference_id}/loyalty-id':
+          put:
+            tags:
+              - MemberMerchant
+            summary: Update member Merchant Loyalty Program
+            description: Updates the Merchant Loyalty Program for an existing member in MLC.
+            operationId: updateMerchantLoyaltyProgram
+            consumes:
+              - application/json
+            produces:
+              - application/json
+            parameters:
+              - name: X-Merchant-Key
+                in: header
+                description: Key assigned to a 'Merchant' Business Partner at the time of onboarding
+                required: false
+                type: string
+                default: 108d9290-5516-4235-ac0d-fddb04c6b003
+              - name: member_reference_id
+                in: path
+                description: Unique reference key for a member
+                required: true
+                type: string
+                default: kT87TFbPtw6z100047
+              - name: member_merchant_reference_id
+                in: path
+                description: Unique reference key that identifies member and merchant loyalty program association
+                required: true
+                type: string
+                default: 3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0
+              - in: body
+                name: loyaltyProgram
+                description: loyaltyProgram
+                required: true
+                schema:
+                  $ref: '#/definitions/LoyaltyProgram'
+            responses:
+              '204':
+                description: Merchant loyalty program is updated successfully
+              '400':
+                description: Invalid Request
+                schema:
+                  $ref: '#/definitions/Error'
+              '401':
+                description: Unauthorized access to information
+                schema:
+                  $ref: '#/definitions/Error'
+              '500':
+                description: Service not available
+                schema:
+                  $ref: '#/definitions/Error'
+  '/members/{member_reference_id}/payment-cards':
+    get:
+      tags:
+        - PaymentCard
+      summary: Get all payment cards for a member
+      description: Returns all the payment cards connected by a member.
+      operationId: getPaymentCards
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: X-Merchant-Key
+          in: header
+          description: Key assigned to a 'Merchant' Business Partner at the time of onboarding
+          required: false
+          type: string
+          default: 108d9290-5516-4235-ac0d-fddb04c6b003
+        - name: member_reference_id
+          in: path
+          description: Unique reference key for a member
+          required: true
+          type: string
+          default: kT87TFbPtw6z100047
+      responses:
+        '200':
+          description: Payment Cards successfully fetched
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PaymentCardDetails'
+        '400':
+          description: Member reference id should not be blank
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized access to information
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Service not available
+          schema:
+            $ref: '#/definitions/Error'
+      x-action: getPaymentCards
+    post:
+      tags:
+        - PaymentCard
+      summary: Connect payment card for a member
+      description: Connects payment card for an existing member.
+      operationId: enrollPaymentCard
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: X-Merchant-Key
+          in: header
+          description: Key assigned to a 'Merchant' Business Partner at the time of onboarding
+          required: false
+          type: string
+          default: 108d9290-5516-4235-ac0d-fddb04c6b003
+        - name: member_reference_id
+          in: path
+          description: Unique reference key for a member
+          required: true
+          type: string
+          default: kT87TFbPtw6z100047
+        - in: body
+          name: paymentCard
+          description: Contains payment card details
+          required: true
+          schema:
+            $ref: '#/definitions/PaymentCard'
+      responses:
+        '201':
+          description: Successfully enrolled payment card for given partner code
+          schema:
+            $ref: '#/definitions/PaymentCardResponse'
+        '400':
+          description: Invalid Request
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized access to information
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Service not available
+          schema:
+            $ref: '#/definitions/Error'
+      x-action: paymentCardEnrollment
+  '/members/{member_reference_id}/payment-cards/{payment_card_reference_id}':
+    get:
+      tags:
+        - PaymentCard
+      summary: Get payment card details for a member
+      description: Returns details for a specific payment card connected by the member.
+      operationId: getPaymentCardDetails
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: X-Merchant-Key
+          in: header
+          description: Key assigned to a 'Merchant' Business Partner at the time of onboarding
+          required: false
+          type: string
+          default: 108d9290-5516-4235-ac0d-fddb04c6b003
+        - name: member_reference_id
+          in: path
+          description: Unique reference key for a member
+          required: true
+          type: string
+          default: kT87TFbPtw6z100047
+        - name: payment_card_reference_id
+          in: path
+          description: Unique reference key for a member's payment card
+          required: true
+          type: string
+          default: 5f0d07c1-6fc4-4e74-9152-0e20bb7104d9
+      responses:
+        '200':
+          description: Payment Card successfully fetched
+          schema:
+            $ref: '#/definitions/PaymentCardDetails'
+        '400':
+          description: Member reference id should not be blank
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized access to information
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Service not available
+          schema:
+            $ref: '#/definitions/Error'
+      x-action: getPaymentCardDetails
+    put:
+      tags:
+        - PaymentCard
+      summary: Update a payment card for a member
+      description: Updates the details of a specific payment card connected by the member.
+      operationId: updatePaymentCard
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: X-Merchant-Key
+          in: header
+          description: Key assigned to a 'Merchant' Business Partner at the time of onboarding
+          required: false
+          type: string
+          default: 108d9290-5516-4235-ac0d-fddb04c6b003
+        - name: member_reference_id
+          in: path
+          description: Unique reference key for a member
+          required: true
+          type: string
+          default: kT87TFbPtw6z100047
+        - name: payment_card_reference_id
+          in: path
+          description: Unique reference key for a member's payment card
+          required: true
+          type: string
+          default: 5f0d07c1-6fc4-4e74-9152-0e20bb7104d9
+        - in: body
+          name: paymentCard
+          description: Contains payment card details
+          required: true
+          schema:
+            $ref: '#/definitions/PaymentCard'
+      responses:
+        '200':
+          description: Payment Card is successfully updated
+        '204':
+          description: No Content
+        '400':
+          description: Bank Card Number should not be blank
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized access to information
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Service not available
+          schema:
+            $ref: '#/definitions/Error'
+      x-action: paymentCardUpdate
+    delete:
+      tags:
+        - PaymentCard
+      summary: Disconnects a payment card for a member
+      description: Deletes a payment card connected by the member.
+      operationId: deletePaymentCard
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: X-Merchant-Key
+          in: header
+          description: Key assigned to a 'Merchant' Business Partner at the time of onboarding
+          required: false
+          type: string
+          default: 108d9290-5516-4235-ac0d-fddb04c6b003
+        - name: member_reference_id
+          in: path
+          description: Unique reference key for a member
+          required: true
+          type: string
+          default: kT87TFbPtw6z100047
+        - name: payment_card_reference_id
+          in: path
+          description: Unique reference key for a member's payment card
+          required: true
+          type: string
+          default: 5f0d07c1-6fc4-4e74-9152-0e20bb7104d9
+      responses:
+        '202':
+          description: Payment card is successfully deleted
+        '400':
+          description: Member and payment card reference id should not be blank
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized access to information
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Service not available
+          schema:
+            $ref: '#/definitions/Error'
+      x-action: paymentCardDelete
+  /merchants:
+    get:
+      tags:
+        - Merchant
+      summary: Get Merchants
+      description: Get all on-boarded merchants.
+      operationId: getMerchants
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Successfully retrieved all merchants
+          schema:
+            type: array
+            items:
+             $ref: '#/definitions/Merchant'
+        '400':
+          description: Invalid Request
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized access to information
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: Service not available
+          schema:
+            $ref: '#/definitions/Error'
+      x-action: getMerchants
+definitions:
+  DetailItem:
+    type: object
+    properties:
+      name:
+        type: string
+        example: email
+        description: Name of the field with error
+      value:
+        type: string
+        example: Invalid email format
+        description: Reason for the error
+  EnrollLoyaltyConnectResponse:
+    type: object
+    required:
+      - loyaltyConnectReferenceId
+    properties:
+      loyaltyConnectReferenceId:
+        type: string
+        example: f962ad86-d408-467c-8b74-14983569d36c
+        description: Unique reference key for the connection of a loyalty ID and payment card
+  Error:
+    type: object
+    required:
+      - Errors
+    properties:
+      Errors:
+        $ref: '#/definitions/Errors'
+  ErrorItem:
+    type: object
+    properties:
+      Description:
+        type: string
+        example: Invalid request
+        description: Description of the error
+      Details:
+        type: array
+        items:
+          $ref: '#/definitions/DetailItem'
+      ReasonCode:
+        type: string
+        example: BAD_REQUEST
+        description: Reason code indicating type of the error
+      Recoverable:
+        type: boolean
+        example: false
+        description: Indicates if the error is recoverable when the same payload is submitted again
+      Source:
+        type: string
+        example: Input parameters
+        description: Source of the error
+  Errors:
+    type: object
+    required:
+      - Error
+    properties:
+      Error:
+        type: array
+        items:
+          $ref: '#/definitions/ErrorItem'
+  LoyaltyConnect:
+    type: object
+    required:
+      - memberMerchantReferenceId
+      - paymentCardReferenceId
+    properties:
+      memberMerchantReferenceId:
+        type: string
+        example: 3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0
+        description: Unique reference key that identifies member and merchant loyalty program association
+      paymentCardReferenceId:
+        type: string
+        example: 5f0d07c1-6fc4-4e74-9152-0e20bb7104d9
+        description: Unique reference key for a member's payment card
+  LoyaltyConnectResponse:
+    type: object
+    required:
+      - bankCardNumber
+      - loyaltyConnectReferenceId
+      - loyaltyId
+      - memberMerchantReferenceId
+      - merchantCode
+      - paymentCardReferenceId
+    properties:
+      bankCardNumber:
+        type: string
+        example: XXXXXXXXXXXX4444
+        description: Payment Card number that represents a valid card the MLC user wants to connect
+      loyaltyConnectReferenceId:
+        type: string
+        example: f962ad86-d408-467c-8b74-14983569d36c
+        description: Unique reference key for the connection of a loyalty ID and payment card
+      loyaltyId:
+        type: string
+        example: vk@mastercard.com
+        description: Loyalty Id represents unique member merchant association
+      memberMerchantReferenceId:
+        type: string
+        example: 3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0
+        description: Unique reference key that identifies member and merchant loyalty program association
+      merchantCode:
+        type: string
+        example: MLCMerchant
+        description: Unique code assigned to a merchant on boarded with MLC
+      paymentCardReferenceId:
+        type: string
+        example: 5f0d07c1-6fc4-4e74-9152-0e20bb7104d9
+        description: Unique reference key for a member's payment card
+  LoyaltyProgram:
+      type: object
+      properties:
+        loyaltyId:
+          type: string
+          example: vk@mastercard.com
+          description: Loyalty Id represents unique member merchant association
+  Member:
+      type: object
+      required:
+        - partnerCode
+        - userId
+        - userType
+      properties:
+        addressLine1:
+          type: string
+          example: 10 Upper Bank Street
+          description: Address description
+        addressLine2:
+          type: string
+          example: Canary Wharf
+          description: Address description
+        addressLine3:
+          type: string
+          description: Address description
+        cityName:
+          type: string
+          example: London
+          description: City name
+        countryCode:
+          type: string
+          example: UK
+          description: Country Code
+        emailAddress:
+          type: string
+          example: vk@mastercard.com
+          description: Valid email address
+        firstName:
+          type: string
+          example: Virat
+          description: First name of the user
+        lastName:
+          type: string
+          example: Kohli
+          description: Last name of the user
+        mobilePhoneNumber:
+          type: string
+          example: +44 (0) 7970 225 256
+          description: Valid mobile phone number
+        partnerCode:
+          type: string
+          example: MLCMerchant
+          description: 'For Merchant, this is the Merchant code assigned by Mastercard to the Merchant. For Issuer, this is the ICA Number ? Interbank Card Association Number assigned by Mastercard to the Issuer.'
+        postalCode:
+          type: string
+          example: E14 5NP
+          description: Postal Code
+        stateProvinceCode:
+          type: string
+          description: State Code
+        title:
+          type: string
+          example: Mr.
+          description: Name prefix ( Mr. / Ms. / Mrs. etc )
+        userId:
+          type: string
+          example: vk@mastercard.com
+          description: Customer Identifier assigned by the Merchant to MLC user
+        userType:
+          type: string
+          example: MERCHANT_LOYALTY_ID
+          description: 'For Merchant, this value has to be ?MERCHANT_LOYALTY_ID? For Issuer, this value has to be ?BANK_CUSTOMER_NUMBER?'
+  MemberDetails:
+    type: object
+    properties:
+      addressLine1:
+        type: string
+        example: 10 Upper Bank Street
+        description: Address description
+      addressLine2:
+        type: string
+        example: Canary Wharf
+        description: Address description
+      addressLine3:
+        type: string
+        description: Address description
+      cityName:
+        type: string
+        example: London
+        description: City name
+      countryCode:
+        type: string
+        example: UK
+        description: Country Code
+      emailAddress:
+        type: string
+        example: vk@mastercard.com
+        description: Valid email address
+      firstName:
+        type: string
+        example: Virat
+        description: First name of the user
+      lastName:
+        type: string
+        example: Kohli
+        description: Last name of the user
+      mobilePhoneNumber:
+        type: string
+        example: +44 (0) 7970 225 256
+        description: Valid mobile phone number
+      postalCode:
+        type: string
+        example: E14 5NP
+        description: Postal Code
+      stateProvinceCode:
+        type: string
+        description: State Code
+      title:
+        type: string
+        example: Mr.
+        description: Name prefix ( Mr. / Ms. / Mrs. etc )
+  MemberMerchantLoyaltyDetails:
+    type: object
+    required:
+      - loyaltyId
+      - memberMerchantReferenceId
+    properties:
+      loyaltyId:
+        type: string
+        example: vk@mastercard.com
+        description: Loyalty Id represents unique member merchant association
+      memberMerchantReferenceId:
+        type: string
+        example: 3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0
+        description: Unique reference key that identifies member and merchant loyalty program association
+      merchantCode:
+        type: string
+        example: MLCMerchant
+        description: Unique code assigned to a merchant on boarded with MLC
+      merchantName:
+        type: string
+        example: MLCMerchant
+        description: Merchant name
+      pointBalance:
+        type: number
+        format: double
+        example: 100.27
+        description: Point balance present for a particular merchant loyalty program
+  MemberMerchantResponse:
+    type: object
+    required:
+      - memberMerchantReferenceId
+      - memberReferenceId
+    properties:
+      memberMerchantReferenceId:
+        type: string
+        example: 3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0
+        description: Unique reference key that identifies member and merchant loyalty program association
+      memberReferenceId:
+        type: string
+        example: kT87TFbPtw6z100047
+        description: Unique reference key for a member
+  MemberResponse:
+    type: object
+    required:
+      - memberReferenceId
+    properties:
+      addressLine1:
+        type: string
+        example: 10 Upper Bank Street
+        description: Address description
+      addressLine2:
+        type: string
+        example: Canary Wharf
+        description: Address description
+      addressLine3:
+        type: string
+        description: Address description
+      cityName:
+        type: string
+        example: London
+        description: City name
+      countryCode:
+        type: string
+        example: UK
+        description: Country Code
+      emailAddress:
+        type: string
+        example: vk@mastercard.com
+        description: Valid email address
+      firstName:
+        type: string
+        example: Virat
+        description: First name of the user
+      lastName:
+        type: string
+        example: Kohli
+        description: Last name of the user
+      loyaltyConnectResponses:
+        type: array
+        items:
+          $ref: '#/definitions/LoyaltyConnectResponse'
+      memberReferenceId:
+        type: string
+        example: kT87TFbPtw6z100047
+        description: Unique reference key for a member
+      merchantLoyaltyDetails:
+        type: array
+        items:
+          $ref: '#/definitions/MemberMerchantLoyaltyDetails'
+      mobilePhoneNumber:
+        type: string
+        example: +44 (0) 7970 225 256
+        description: Valid mobile phone number
+      paymentCards:
+        type: array
+        items:
+          $ref: '#/definitions/PaymentCardDetails'
+      postalCode:
+        type: string
+        example: E14 5NP
+        description: Postal Code
+      stateProvinceCode:
+        type: string
+        description: State Code
+      title:
+        type: string
+        example: Mr.
+        description: Name prefix ( Mr. / Ms. / Mrs. etc )
+  Merchant:
+    type: object
+    required:
+      - merchantCode
+      - merchantName
+    properties:
+      merchantCode:
+        type: string
+        example: MLCMerchant
+        description: Unique code assigned to a merchant on boarded with Mlc
+      merchantName:
+        type: string
+        example: Liberty
+        description: Merchant Name associated with the Merchant Code.
+  MerchantLoyaltyProgram:
+    type: object
+    required:
+      - merchantCode
+    properties:
+      loyaltyId:
+        type: string
+        example: vk@mastercard.com
+        description: Loyalty Id represents unique member merchant association
+      merchantCode:
+        type: string
+        example: MLCMerchant
+        description: Unique code assigned to a merchant on boarded with MLC
+  MerchantLoyaltyProgramResponse:
+    type: object
+    required:
+      - loyaltyId
+      - memberMerchantReferenceId
+    properties:
+      loyaltyId:
+        type: string
+        example: vk@mastercard.com
+        description: Loyalty Id represents unique member merchant association
+      memberMerchantReferenceId:
+        type: string
+        example: 3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0
+        description: Unique reference key that identifies member and merchant loyalty program association
+  MerchantLoyaltyProgramSearchResponse:
+    type: object
+    required:
+      - memberReferenceId
+    properties:
+      memberMerchantLoyaltyDetails:
+        type: array
+        items:
+          $ref: '#/definitions/MemberMerchantLoyaltyDetails'
+      memberReferenceId:
+        type: string
+        example: kT87TFbPtw6z100047
+        description: Unique reference key for a member
+  PaymentCard:
+    type: object
+    required:
+      - bankCardNumber
+    properties:
+      bankCardNumber:
+        type: string
+        example: '5555555555554444'
+        description: Payment Card number that represents a valid card the MLC user wants to connect
+      bankCardProduct:
+        type: string
+        example: BLACK
+        description: Card product assigned by the Issuer for the payment card
+  PaymentCardDetails:
+    type: object
+    required:
+      - bankCardNumber
+      - paymentCardReferenceId
+    properties:
+      bankCardNumber:
+        type: string
+        example: XXXXXXXXXXXX4444
+        description: Payment Card number that represents a valid card the MLC user wants to connect
+      bankCardProduct:
+        type: string
+        example: BLACK
+        description: Card product assigned by the Issuer for the payment card
+      paymentCardReferenceId:
+        type: string
+        example: 5f0d07c1-6fc4-4e74-9152-0e20bb7104d9
+        description: Unique reference key for a member's payment card
+  PaymentCardResponse:
+    type: object
+    required:
+      - paymentCardReferenceId
+    properties:
+      paymentCardReferenceId:
+        type: string
+        example: 5f0d07c1-6fc4-4e74-9152-0e20bb7104d9
+        description: Unique reference key for a member's payment card
+  Transaction:
+    type: object
+    required:
+      - bankCardNumber
+      - ksn
+    properties:
+      bankCardNumber:
+        type: string
+        example: '000000014B2E3883F0723361900276A1366153731533059120C18075E4B12160232E7BD698D680EEABF32DA23B4FF0B41E116C3FB0C45AA78F0BF21F9A178F5F79EFE80A851F5B575BB56CA7'
+        description: Payment Card number that represents a valid card the MLC user wants to connect
+      issuerName:
+        type: string
+        example: MLCIssuer
+        description: Name of the issuer
+      iv:
+        type: string
+        example: '0000000000000000'
+        description: Initial Vector
+      ksn:
+        type: string
+        example: 4D43544553A9FAE00008
+        description: Key Serial Number
+      merchantLocationId:
+        type: string
+        example: LOC1001
+        description: Merchant location id
+      paymentCardNetworkDetails:
+        type: string
+        example: Mastercard
+        description: Network used for the transaction
+      terminalId:
+        type: string
+        example: MLCMerchant001
+        description: Merchant terminal id
+  TransactionResponse:
+    type: object
+    properties:
+      loyaltyId:
+        type: string
+        example: vk@mastercard.com
+        description: Loyalty Id represents unique member merchant association

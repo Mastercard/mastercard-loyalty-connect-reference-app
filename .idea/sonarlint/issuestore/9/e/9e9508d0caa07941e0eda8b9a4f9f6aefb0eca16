@@ -1,0 +1,41 @@
+
+isquid:S1192"TDefine a constant instead of duplicating this literal "member_reference_id" 5 times.(«şÒ
+ksquid:S1192"QDefine a constant instead of duplicating this literal "application/json" 7 times.(şÿÑëşÿÿÿÿ
+dsquid:S1192"ODefine a constant instead of duplicating this literal "X-Merchant-Key" 5 times.(ääÅŸ
+asquid:S1192"GDefine a constant instead of duplicating this literal "Accept" 5 times.(˜À°Ãûÿÿÿÿ
+bsquid:S1192"MDefine a constant instead of duplicating this literal "Content-Type" 5 times.(¾’Å˜
+wsquid:S1192"]Define a constant instead of duplicating this literal "member_merchant_reference_id" 3 times.(ƒ…ñˆùÿÿÿÿ
+vsquid:S1488"\Immediately return this expression instead of assigning it to the temporary variable "call".(Œòœ‹øÿÿÿÿ
+vsquid:S1488"\Immediately return this expression instead of assigning it to the temporary variable "call".(ºÚ–ßúÿÿÿÿ
+vsquid:S1488"\Immediately return this expression instead of assigning it to the temporary variable "call".(‘ô­øÿÿÿÿ
+vsquid:S1488"\Immediately return this expression instead of assigning it to the temporary variable "call".(üœÑşÿÿÿÿ
+qsquid:S1488"\Immediately return this expression instead of assigning it to the temporary variable "call".(¹È—½
+…squid:UselessImportCheck"cRemove this unused import 'com.mastercard.developer.mastercard_loyalty_connect_client.model.Error'.(áœƒü
+isquid:S1858"T"memberReferenceId" is already a string, there's no need to call "toString()" on it.(«şÒ
+vsquid:S1858"\"memberMerchantReferenceId" is already a string, there's no need to call "toString()" on it.(ƒ…ñˆùÿÿÿÿ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(çïéÛ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ª‚Èâ
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¦…üÿÿÿÿ
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÕòÅıÿÿÿÿ
+nsquid:S1858"T"memberReferenceId" is already a string, there's no need to call "toString()" on it.(“²Éïùÿÿÿÿ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(çïéÛ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ª‚Èâ
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¦…üÿÿÿÿ
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÕòÅıÿÿÿÿ
+isquid:S1858"T"memberReferenceId" is already a string, there's no need to call "toString()" on it.(«şÒ
+vsquid:S1858"\"memberMerchantReferenceId" is already a string, there's no need to call "toString()" on it.(ƒ…ñˆùÿÿÿÿ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(çïéÛ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ª‚Èâ
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¦…üÿÿÿÿ
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÕòÅıÿÿÿÿ
+nsquid:S1858"T"memberReferenceId" is already a string, there's no need to call "toString()" on it.(“²Éïùÿÿÿÿ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(çïéÛ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ª‚Èâ
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¦…üÿÿÿÿ
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÕòÅıÿÿÿÿ
+isquid:S1858"T"memberReferenceId" is already a string, there's no need to call "toString()" on it.(«şÒ
+vsquid:S1858"\"memberMerchantReferenceId" is already a string, there's no need to call "toString()" on it.(ƒ…ñˆùÿÿÿÿ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(çïéÛ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ª‚Èâ
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(–¦…üÿÿÿÿ
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÕòÅıÿÿÿÿ

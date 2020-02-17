@@ -1,0 +1,23 @@
+
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+q
+Asrc/main/java/com/mastercard/lts/rewards/apis/MemberMerchant.java,c\4\c4da6c0a47d4a0b808c8b243cfeaa7f59bc4d2f4
+¶
+…mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/MemberMerchantApi.java,9\e\9e9508d0caa07941e0eda8b9a4f9f6aefb0eca16
+h
+8mastercard-loyalty-connect-client/docs/LoyaltyProgram.md,c\b\cbabc0083dba08f2ebfa306bbf6aa6c74b82474d
+i
+9src/main/java/com/mastercard/lts/rewards/apis/Member.java,8\2\8207c14c20c4e513e51929a4d6e9368e51850a82
+p
+@src/main/java/com/mastercard/lts/rewards/service/MlcService.java,6\3\63b5a8355da47c3fd8e41f069af11f56ea55c047
+n
+>src/main/java/com/mastercard/lts/rewards/config/MlcConfig.java,f\6\f6ea036c7087194c4f788504c519571359ad3c62
+q
+Asrc/main/java/com/mastercard/lts/rewards/apis/LoyaltyConnect.java,0\e\0e0a2641038a88468520150464a608e4ec6db56a
+
+Osrc/main/java/com/mastercard/lts/rewards/MastercardLoyaltyConnectReference.java,a\e\aed7c7d380f244b60ef73e657e959fa04c8e820b
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+Y
+)mastercard-loyalty-connect-client/pom.xml,c\1\c1f8d1dc259a1d774ec16856839e2ce417f58869

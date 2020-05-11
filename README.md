@@ -334,7 +334,7 @@ Expected response from Business Partner Location API:
   "terminalId": "G3243423J4534",
   "locationReferenceId": "b1aba2a9-d426-4cf7-be76-9a9b4e9e3762"
 }
-
+```
 ## Author
 - Name: **Mastercard**
 - Contact: **apisupport@mastercard.com**

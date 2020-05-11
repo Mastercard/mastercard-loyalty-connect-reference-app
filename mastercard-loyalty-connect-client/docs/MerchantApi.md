@@ -18,17 +18,29 @@ Get all on-boarded merchants.
 ### Example
 ```java
 // Import classes:
-//import com.mastercard.developer.mastercard_loyalty_connect_client.ApiException;
-//import com.mastercard.developer.mastercard_loyalty_connect_client.api.MerchantApi;
+import com.mastercard.developer.mastercard_loyalty_connect_client.ApiClient;
+import com.mastercard.developer.mastercard_loyalty_connect_client.ApiException;
+import com.mastercard.developer.mastercard_loyalty_connect_client.Configuration;
+import com.mastercard.developer.mastercard_loyalty_connect_client.models.*;
+import com.mastercard.developer.mastercard_loyalty_connect_client.api.MerchantApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://api.mastercard.com/mlc/api");
 
-MerchantApi apiInstance = new MerchantApi();
-try {
-    List<Merchant> result = apiInstance.getMerchants();
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling MerchantApi#getMerchants");
-    e.printStackTrace();
+    MerchantApi apiInstance = new MerchantApi(defaultClient);
+    try {
+      List<Merchant> result = apiInstance.getMerchants();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MerchantApi#getMerchants");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -47,4 +59,11 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successfully retrieved all merchants |  -  |
+**401** | Unauthorized access to information |  -  |
+**500** | Service not available |  -  |
 

@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="33fe682e-81fb-4e06-a5da-4679ea2b6d13" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/apis/BusinessPartnerLocation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/.openapi-generator-ignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/.openapi-generator/VERSION" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/build.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/DetailItem.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/EnrollLoyaltyConnectResponse.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/Error.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/ErrorItem.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/Errors.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/LoyaltyConnect.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/LoyaltyConnectApi.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/LoyaltyConnectResponse.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/LoyaltyProgram.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/Member.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/MemberApi.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/MemberDetails.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/MemberMerchantApi.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/MemberMerchantLoyaltyDetails.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/MemberMerchantResponse.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/MemberResponse.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/Merchant.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/MerchantApi.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/MerchantLoyaltyProgram.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/MerchantLoyaltyProgramResponse.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/MerchantLoyaltyProgramSearchResponse.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/PaymentCard.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/PaymentCardApi.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/PaymentCardDetails.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/PaymentCardResponse.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/Transaction.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/TransactionApi.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/docs/TransactionResponse.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/git_push.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/mastercard-loyalty-connect-client.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/ApiCallback.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/ApiClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/ApiException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/ApiResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/Configuration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/GzipRequestInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/JSON.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/Pair.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/ProgressRequestBody.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/ProgressResponseBody.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/StringUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/LoyaltyConnectApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/MemberApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/MemberMerchantApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/MerchantApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/PaymentCardApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/TransactionApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/auth/ApiKeyAuth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/auth/Authentication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/auth/HttpBasicAuth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/auth/OAuth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/auth/OAuthFlow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/auth/OAuthOkHttpClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/auth/RetryingOAuth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/DetailItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/EnrollLoyaltyConnectResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Error.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/ErrorItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/LoyaltyConnect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/LoyaltyConnectResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/LoyaltyProgram.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Member.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/MemberDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/MemberMerchantAlreadyJoinedErrorErrors.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/MemberMerchantLoyaltyDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/MemberMerchantResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/MemberResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Merchant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/MerchantLoyaltyProgram.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/MerchantLoyaltyProgramResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/MerchantLoyaltyProgramSearchResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/PaymentCard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/PaymentCardDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/PaymentCardResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Transaction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/TransactionResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/test/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/LoyaltyConnectApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/test/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/MemberApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/test/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/MemberMerchantApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/test/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/MerchantApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/test/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/PaymentCardApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/test/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/TransactionApiTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/MastercardLoyaltyConnectReference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/MastercardLoyaltyConnectReference.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/config/MlcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/config/MlcConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/service/MlcService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/service/MlcService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Loyalty_Connect.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Loyalty_Connect.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MasterCard_Loyalty_Connect.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MasterCard_Loyalty_Connect.yaml" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/mastercard-loyalty-connect-client/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="C:\Users\e086113\m2\repository" />
+        <option name="mavenHome" value="$USER_HOME$/apache-maven-3.6.0" />
+        <option name="userSettingsFile" value="C:\Users\e086113\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="linked-mastercard-loyalty-connect-reference" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="linked-mastercard-loyalty-connect-reference" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1240" />
+    <option name="height" value="670" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="mastercard-loyalty-connect-reference" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mastercard-loyalty-connect-reference" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\e086113\IdeaProjects\mastercard-loyalty-connect-reference" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="33fe682e-81fb-4e06-a5da-4679ea2b6d13" name="Default" comment="" />
+      <created>1589178278070</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589178278070</updated>
+      <workItem from="1589178280050" duration="501000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="501000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <layout>
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info id="Image Layers" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" visible="true" weight="0.3295302" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.17226277" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info id="Capture Tool" />
+      <window_info id="Designer" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966443" />
+      <window_info anchor="bottom" id="SonarLint" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="SonarQube" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info anchor="right" id="Palette" order="0" />
+      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="6" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="bottom" id="Run" order="8" weight="0.3678832" />
+      <window_info anchor="bottom" id="SonarQube" order="0" />
+      <window_info anchor="bottom" id="SonarLint" order="1" />
+      <window_info content_ui="combo" id="Project" order="5" weight="0.24966443" />
+      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Theme Preview" order="2" />
+      <window_info anchor="bottom" id="TODO" order="12" />
+      <window_info anchor="bottom" id="Database Changes" order="2" show_stripe_button="false" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
+      <window_info id="Image Layers" order="0" />
+      <window_info id="Designer" order="1" />
+      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="bottom" id="Terminal" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="5" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info anchor="bottom" id="Find" order="7" />
+      <window_info active="true" anchor="right" id="Maven Projects" order="5" visible="true" weight="0.3295302" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/auth/OAuthOkHttpClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="31" column="30" lean-forward="true" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/MemberApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="84" column="25" selection-start-line="84" selection-start-column="25" selection-end-line="84" selection-end-column="25" />
+          <folding>
+            <element signature="e#3919#3925#0" expanded="true" />
+            <element signature="e#3993#3999#0" expanded="true" />
+            <element signature="e#11693#11699#0" expanded="true" />
+            <element signature="e#11767#11773#0" expanded="true" />
+            <element signature="e#20599#20605#0" expanded="true" />
+            <element signature="e#20673#20679#0" expanded="true" />
+            <element signature="e#28759#28765#0" expanded="true" />
+            <element signature="e#28833#28839#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/auth/RetryingOAuth.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

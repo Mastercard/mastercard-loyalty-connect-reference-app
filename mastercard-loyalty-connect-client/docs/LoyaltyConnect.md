@@ -1,11 +1,13 @@
 
+
 # LoyaltyConnect
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**memberMerchantReferenceId** | **String** | Unique reference key that identifies member and merchant loyalty program association | 
-**paymentCardReferenceId** | **String** | Unique reference key for a member&#39;s payment card | 
+**memberMerchantReferenceId** | **String** | A system generated unique identifier for the Member and Merchant Loyalty ID connection | 
+**paymentCardReferenceId** | **String** | A system generated unique identifier for the Payment card enrolled for the Member | 
 
 
 

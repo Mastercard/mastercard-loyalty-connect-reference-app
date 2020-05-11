@@ -1,10 +1,12 @@
 
+
 # PaymentCardResponse
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**paymentCardReferenceId** | **String** | Unique reference key for a member&#39;s payment card | 
+**paymentCardReferenceId** | **String** | A system generated unique identifier for the Payment card enrolled for the Member | 
 
 
 

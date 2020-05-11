@@ -1,14 +1,16 @@
 
+
 # MemberMerchantLoyaltyDetails
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**loyaltyId** | **String** | Loyalty Id represents unique member merchant association | 
-**memberMerchantReferenceId** | **String** | Unique reference key that identifies member and merchant loyalty program association | 
-**merchantCode** | **String** | Unique code assigned to a merchant on boarded with MLC |  [optional]
-**merchantName** | **String** | Merchant name |  [optional]
-**pointBalance** | **Double** | Point balance present for a particular merchant loyalty program |  [optional]
+**loyaltyId** | **String** | Unique Identifier assigned by Merchant to its every Member | 
+**memberMerchantReferenceId** | **String** | A system generated unique identifier for the Member and Merchant Loyalty ID connection | 
+**merchantCode** | **String** | Unique Identifier assigned by Mastercard to every partner onboarded with MLC |  [optional]
+**merchantName** | **String** | Name and description of the MLC partner as on the signed contract |  [optional]
+**pointBalance** | **Double** | Point Balance associated with the Loyalty ID in the Merchant Loyalty Program |  [optional]
 
 
 

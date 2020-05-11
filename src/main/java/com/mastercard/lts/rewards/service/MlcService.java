@@ -2,6 +2,8 @@ package com.mastercard.lts.rewards.service;
 
 import com.mastercard.developer.mastercard_loyalty_connect_client.ApiClient;
 import com.mastercard.developer.mastercard_loyalty_connect_client.ApiException;
+import com.mastercard.developer.mastercard_loyalty_connect_client.model.BusinessPartnerLocationDetails;
+import com.mastercard.developer.mastercard_loyalty_connect_client.model.BusinessPartnerLocationsResponse;
 import com.mastercard.developer.mastercard_loyalty_connect_client.model.EnrollLoyaltyConnectResponse;
 import com.mastercard.developer.mastercard_loyalty_connect_client.model.LoyaltyProgram;
 import com.mastercard.developer.mastercard_loyalty_connect_client.model.MemberDetails;
@@ -10,6 +12,7 @@ import com.mastercard.developer.mastercard_loyalty_connect_client.model.Merchant
 import com.mastercard.developer.mastercard_loyalty_connect_client.model.MerchantLoyaltyProgramResponse;
 import com.mastercard.developer.mastercard_loyalty_connect_client.model.PaymentCard;
 import com.mastercard.developer.mastercard_loyalty_connect_client.model.PaymentCardResponse;
+import com.mastercard.lts.rewards.apis.BusinessPartnerLocation;
 import com.mastercard.lts.rewards.apis.LoyaltyConnect;
 import com.mastercard.lts.rewards.apis.Member;
 import com.mastercard.lts.rewards.apis.MemberMerchant;
@@ -58,6 +61,8 @@ public class MlcService {
         getMember(apiClient, memberMerchantResponse.getMemberReferenceId());
 
         deleteMember(apiClient, memberMerchantResponse.getMemberReferenceId());
+
+        enrollBusinessPartnerLocation(apiClient);
     }
 
     private static MemberMerchantResponse enrollMember(ApiClient apiClient) throws ApiException {
@@ -123,4 +128,23 @@ public class MlcService {
         paymentCard.setBankCardProduct("BLACK");
         return com.mastercard.lts.rewards.apis.PaymentCard.enrollPaymentCard(apiClient, memberReferenceId, paymentCard);
     }
+
+    private static BusinessPartnerLocationsResponse enrollBusinessPartnerLocation(ApiClient apiClient) throws ApiException {
+        BusinessPartnerLocationDetails locationDetails = new BusinessPartnerLocationDetails();
+        locationDetails.setAddressLine1("Mastercard"); //DO NOT CHANGE for SANDBOX
+        locationDetails.setAddressLine2("London");
+        locationDetails.setCountry("UK");
+        locationDetails.setIcaNumber("4009034");
+        locationDetails.setStoreEmail("jsmith@mastercard.com");
+        locationDetails.setStoreName("Liberty Store");
+        locationDetails.setStorePhone("+44 (0) 7970 225 256");
+        locationDetails.setStoreType("full-price");
+        locationDetails.setVatNumber("GB 8978654");
+
+        String locationId = "G3243423J4534";
+        String terminalId = "K42398732L3292";
+
+        return BusinessPartnerLocation.enrollBusinessPartnerLocation(apiClient, locationId, terminalId, locationDetails);
+    }
+
 }

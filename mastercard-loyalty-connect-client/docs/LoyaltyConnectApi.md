@@ -21,19 +21,31 @@ Delete a specific Loyalty ID and payment card connection for a member based on t
 ### Example
 ```java
 // Import classes:
-//import com.mastercard.developer.mastercard_loyalty_connect_client.ApiException;
-//import com.mastercard.developer.mastercard_loyalty_connect_client.api.LoyaltyConnectApi;
+import com.mastercard.developer.mastercard_loyalty_connect_client.ApiClient;
+import com.mastercard.developer.mastercard_loyalty_connect_client.ApiException;
+import com.mastercard.developer.mastercard_loyalty_connect_client.Configuration;
+import com.mastercard.developer.mastercard_loyalty_connect_client.models.*;
+import com.mastercard.developer.mastercard_loyalty_connect_client.api.LoyaltyConnectApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://api.mastercard.com/mlc/api");
 
-LoyaltyConnectApi apiInstance = new LoyaltyConnectApi();
-String memberReferenceId = "\"kT87TFbPtw6z100047\""; // String | Unique reference key for a member
-String loyaltyConnectReferenceId = "\"f962ad86-d408-467c-8b74-14983569d36c\""; // String | Unique reference key for the connection of a loyalty ID and payment card
-String xMerchantKey = "\"108d9290-5516-4235-ac0d-fddb04c6b003\""; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
-try {
-    apiInstance.deleteLoyaltyConnect(memberReferenceId, loyaltyConnectReferenceId, xMerchantKey);
-} catch (ApiException e) {
-    System.err.println("Exception when calling LoyaltyConnectApi#deleteLoyaltyConnect");
-    e.printStackTrace();
+    LoyaltyConnectApi apiInstance = new LoyaltyConnectApi(defaultClient);
+    String memberReferenceId = "\"kT87TFbPtw6z100047\""; // String | A system generated unique identifier for the Member enrolled in MLC
+    String loyaltyConnectReferenceId = "\"f962ad86-d408-467c-8b74-14983569d36c\""; // String | A system generated unique identifier for the Member's Payment Card and Merchant Loyalty ID connection
+    String xMerchantKey = "\"108d9290-5516-4235-ac0d-fddb04c6b003\""; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
+    try {
+      apiInstance.deleteLoyaltyConnect(memberReferenceId, loyaltyConnectReferenceId, xMerchantKey);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LoyaltyConnectApi#deleteLoyaltyConnect");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -41,8 +53,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberReferenceId** | **String**| Unique reference key for a member | [default to &quot;kT87TFbPtw6z100047&quot;]
- **loyaltyConnectReferenceId** | **String**| Unique reference key for the connection of a loyalty ID and payment card | [default to &quot;f962ad86-d408-467c-8b74-14983569d36c&quot;]
+ **memberReferenceId** | **String**| A system generated unique identifier for the Member enrolled in MLC | [default to &quot;kT87TFbPtw6z100047&quot;]
+ **loyaltyConnectReferenceId** | **String**| A system generated unique identifier for the Member&#39;s Payment Card and Merchant Loyalty ID connection | [default to &quot;f962ad86-d408-467c-8b74-14983569d36c&quot;]
  **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding | [optional] [default to &quot;108d9290-5516-4235-ac0d-fddb04c6b003&quot;]
 
 ### Return type
@@ -58,6 +70,14 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Loyalty Connect successfully deleted |  -  |
+**400** | Member reference id not found |  -  |
+**401** | Unauthorized access to information |  -  |
+**500** | Service not available |  -  |
+
 <a name="enrollLoyaltyConnect"></a>
 # **enrollLoyaltyConnect**
 > EnrollLoyaltyConnectResponse enrollLoyaltyConnect(memberReferenceId, loyaltyConnect, xMerchantKey)
@@ -69,20 +89,32 @@ Connects a member&#39;s payment card with Loyalty ID. The member must have the p
 ### Example
 ```java
 // Import classes:
-//import com.mastercard.developer.mastercard_loyalty_connect_client.ApiException;
-//import com.mastercard.developer.mastercard_loyalty_connect_client.api.LoyaltyConnectApi;
+import com.mastercard.developer.mastercard_loyalty_connect_client.ApiClient;
+import com.mastercard.developer.mastercard_loyalty_connect_client.ApiException;
+import com.mastercard.developer.mastercard_loyalty_connect_client.Configuration;
+import com.mastercard.developer.mastercard_loyalty_connect_client.models.*;
+import com.mastercard.developer.mastercard_loyalty_connect_client.api.LoyaltyConnectApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://api.mastercard.com/mlc/api");
 
-LoyaltyConnectApi apiInstance = new LoyaltyConnectApi();
-String memberReferenceId = "\"kT87TFbPtw6z100047\""; // String | Unique reference key for a member
-LoyaltyConnect loyaltyConnect = new LoyaltyConnect(); // LoyaltyConnect | Contains payment card and loyalty program details
-String xMerchantKey = "\"108d9290-5516-4235-ac0d-fddb04c6b003\""; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
-try {
-    EnrollLoyaltyConnectResponse result = apiInstance.enrollLoyaltyConnect(memberReferenceId, loyaltyConnect, xMerchantKey);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling LoyaltyConnectApi#enrollLoyaltyConnect");
-    e.printStackTrace();
+    LoyaltyConnectApi apiInstance = new LoyaltyConnectApi(defaultClient);
+    String memberReferenceId = "\"kT87TFbPtw6z100047\""; // String | A system generated unique identifier for the Member enrolled in MLC
+    LoyaltyConnect loyaltyConnect = new LoyaltyConnect(); // LoyaltyConnect | Contains payment card and loyalty program details
+    String xMerchantKey = "\"108d9290-5516-4235-ac0d-fddb04c6b003\""; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
+    try {
+      EnrollLoyaltyConnectResponse result = apiInstance.enrollLoyaltyConnect(memberReferenceId, loyaltyConnect, xMerchantKey);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LoyaltyConnectApi#enrollLoyaltyConnect");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -90,7 +122,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberReferenceId** | **String**| Unique reference key for a member | [default to &quot;kT87TFbPtw6z100047&quot;]
+ **memberReferenceId** | **String**| A system generated unique identifier for the Member enrolled in MLC | [default to &quot;kT87TFbPtw6z100047&quot;]
  **loyaltyConnect** | [**LoyaltyConnect**](LoyaltyConnect.md)| Contains payment card and loyalty program details |
  **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding | [optional] [default to &quot;108d9290-5516-4235-ac0d-fddb04c6b003&quot;]
 
@@ -107,6 +139,14 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Successfully connected payment card to loyalty |  -  |
+**400** | Member reference id not found |  -  |
+**401** | Unauthorized access to information |  -  |
+**500** | Service not available |  -  |
+
 <a name="getLoyaltyConnect"></a>
 # **getLoyaltyConnect**
 > LoyaltyConnectResponse getLoyaltyConnect(memberReferenceId, loyaltyConnectReferenceId, xMerchantKey)
@@ -118,20 +158,32 @@ Returns the Loyalty ID and payment card details for a member if the Loyalty ID e
 ### Example
 ```java
 // Import classes:
-//import com.mastercard.developer.mastercard_loyalty_connect_client.ApiException;
-//import com.mastercard.developer.mastercard_loyalty_connect_client.api.LoyaltyConnectApi;
+import com.mastercard.developer.mastercard_loyalty_connect_client.ApiClient;
+import com.mastercard.developer.mastercard_loyalty_connect_client.ApiException;
+import com.mastercard.developer.mastercard_loyalty_connect_client.Configuration;
+import com.mastercard.developer.mastercard_loyalty_connect_client.models.*;
+import com.mastercard.developer.mastercard_loyalty_connect_client.api.LoyaltyConnectApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://api.mastercard.com/mlc/api");
 
-LoyaltyConnectApi apiInstance = new LoyaltyConnectApi();
-String memberReferenceId = "\"kT87TFbPtw6z100047\""; // String | Unique reference key for a member
-String loyaltyConnectReferenceId = "\"f962ad86-d408-467c-8b74-14983569d36c\""; // String | Unique reference key for the connection of a loyalty ID and payment card
-String xMerchantKey = "\"108d9290-5516-4235-ac0d-fddb04c6b003\""; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
-try {
-    LoyaltyConnectResponse result = apiInstance.getLoyaltyConnect(memberReferenceId, loyaltyConnectReferenceId, xMerchantKey);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling LoyaltyConnectApi#getLoyaltyConnect");
-    e.printStackTrace();
+    LoyaltyConnectApi apiInstance = new LoyaltyConnectApi(defaultClient);
+    String memberReferenceId = "\"kT87TFbPtw6z100047\""; // String | A system generated unique identifier for the Member enrolled in MLC
+    String loyaltyConnectReferenceId = "\"f962ad86-d408-467c-8b74-14983569d36c\""; // String | A system generated unique identifier for the Member's Payment Card and Merchant Loyalty ID connection
+    String xMerchantKey = "\"108d9290-5516-4235-ac0d-fddb04c6b003\""; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
+    try {
+      LoyaltyConnectResponse result = apiInstance.getLoyaltyConnect(memberReferenceId, loyaltyConnectReferenceId, xMerchantKey);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LoyaltyConnectApi#getLoyaltyConnect");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -139,8 +191,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberReferenceId** | **String**| Unique reference key for a member | [default to &quot;kT87TFbPtw6z100047&quot;]
- **loyaltyConnectReferenceId** | **String**| Unique reference key for the connection of a loyalty ID and payment card | [default to &quot;f962ad86-d408-467c-8b74-14983569d36c&quot;]
+ **memberReferenceId** | **String**| A system generated unique identifier for the Member enrolled in MLC | [default to &quot;kT87TFbPtw6z100047&quot;]
+ **loyaltyConnectReferenceId** | **String**| A system generated unique identifier for the Member&#39;s Payment Card and Merchant Loyalty ID connection | [default to &quot;f962ad86-d408-467c-8b74-14983569d36c&quot;]
  **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding | [optional] [default to &quot;108d9290-5516-4235-ac0d-fddb04c6b003&quot;]
 
 ### Return type
@@ -156,6 +208,14 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Loyalty Connect is successfully fetched |  -  |
+**400** | Member reference id not found |  -  |
+**401** | Unauthorized access to information |  -  |
+**500** | Service not available |  -  |
+
 <a name="getLoyaltyConnects"></a>
 # **getLoyaltyConnects**
 > List&lt;LoyaltyConnectResponse&gt; getLoyaltyConnects(memberReferenceId, xMerchantKey, memberMerchantReferenceId, paymentCardReferenceId)
@@ -167,21 +227,33 @@ Returns all payment card and Loyalty ID connections for the member. If the membe
 ### Example
 ```java
 // Import classes:
-//import com.mastercard.developer.mastercard_loyalty_connect_client.ApiException;
-//import com.mastercard.developer.mastercard_loyalty_connect_client.api.LoyaltyConnectApi;
+import com.mastercard.developer.mastercard_loyalty_connect_client.ApiClient;
+import com.mastercard.developer.mastercard_loyalty_connect_client.ApiException;
+import com.mastercard.developer.mastercard_loyalty_connect_client.Configuration;
+import com.mastercard.developer.mastercard_loyalty_connect_client.models.*;
+import com.mastercard.developer.mastercard_loyalty_connect_client.api.LoyaltyConnectApi;
 
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://api.mastercard.com/mlc/api");
 
-LoyaltyConnectApi apiInstance = new LoyaltyConnectApi();
-String memberReferenceId = "\"kT87TFbPtw6z100047\""; // String | Unique reference key for a member
-String xMerchantKey = "\"108d9290-5516-4235-ac0d-fddb04c6b003\""; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
-String memberMerchantReferenceId = "\"3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0\""; // String | Unique reference key that identifies member and merchant loyalty program association
-String paymentCardReferenceId = "\"5f0d07c1-6fc4-4e74-9152-0e20bb7104d9\""; // String | Unique reference key for a member's payment card
-try {
-    List<LoyaltyConnectResponse> result = apiInstance.getLoyaltyConnects(memberReferenceId, xMerchantKey, memberMerchantReferenceId, paymentCardReferenceId);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling LoyaltyConnectApi#getLoyaltyConnects");
-    e.printStackTrace();
+    LoyaltyConnectApi apiInstance = new LoyaltyConnectApi(defaultClient);
+    String memberReferenceId = "\"kT87TFbPtw6z100047\""; // String | A system generated unique identifier for the Member enrolled in MLC
+    String xMerchantKey = "\"108d9290-5516-4235-ac0d-fddb04c6b003\""; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
+    String memberMerchantReferenceId = "\"3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0\""; // String | A system generated unique identifier for the Member and Merchant Loyalty ID connection
+    String paymentCardReferenceId = "\"5f0d07c1-6fc4-4e74-9152-0e20bb7104d9\""; // String | A system generated unique identifier for the Payment card enrolled for the Member
+    try {
+      List<LoyaltyConnectResponse> result = apiInstance.getLoyaltyConnects(memberReferenceId, xMerchantKey, memberMerchantReferenceId, paymentCardReferenceId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling LoyaltyConnectApi#getLoyaltyConnects");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
 }
 ```
 
@@ -189,10 +261,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberReferenceId** | **String**| Unique reference key for a member | [default to &quot;kT87TFbPtw6z100047&quot;]
+ **memberReferenceId** | **String**| A system generated unique identifier for the Member enrolled in MLC | [default to &quot;kT87TFbPtw6z100047&quot;]
  **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding | [optional] [default to &quot;108d9290-5516-4235-ac0d-fddb04c6b003&quot;]
- **memberMerchantReferenceId** | **String**| Unique reference key that identifies member and merchant loyalty program association | [optional] [default to &quot;3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0&quot;]
- **paymentCardReferenceId** | **String**| Unique reference key for a member&#39;s payment card | [optional] [default to &quot;5f0d07c1-6fc4-4e74-9152-0e20bb7104d9&quot;]
+ **memberMerchantReferenceId** | **String**| A system generated unique identifier for the Member and Merchant Loyalty ID connection | [optional] [default to &quot;3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0&quot;]
+ **paymentCardReferenceId** | **String**| A system generated unique identifier for the Payment card enrolled for the Member | [optional] [default to &quot;5f0d07c1-6fc4-4e74-9152-0e20bb7104d9&quot;]
 
 ### Return type
 
@@ -206,4 +278,12 @@ No authorization required
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Loyalty Connects are successfully fetched |  -  |
+**400** | Member reference id not found |  -  |
+**401** | Unauthorized access to information |  -  |
+**500** | Service not available |  -  |
 

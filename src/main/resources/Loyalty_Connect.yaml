@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  description: Rest Service for linking payment cards with loyalty programme
+  description: Rest Service for connecting payment cards with loyalty programs
   version: '1.0'
   title: Mastercard Loyalty Connect Service
   termsOfService: 'https://developer.mastercard.com/terms-of-use'
@@ -27,7 +27,57 @@ tags:
     description: Operations related to payment card
   - name: Transaction
     description: Operations related to transactions
+  - name: BusinessPartnerLocations
+    description: Operations related to the company location
 paths:
+  /business-partner-locations/{location_id}/terminals/{terminal_id}:
+    post:
+      tags:
+        - BusinessPartnerLocations
+      summary: Store company location details
+      description: Store a company location into Mastercard Loyalty Connect (MLC)
+      operationId: createOrUpdateBusinessPartnerLocations
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: location_id
+          in: path
+          description: Business Partner Location Details identification associated with payment terminal
+          required: true
+          type: string
+          default: G3243423J4534
+        - name: terminal_id
+          in: path
+          description: Payment Terminal Identification.
+          required: true
+          type: string
+          default: K42398732L3290
+        - in: body
+          name: businessPartnerLocationDetails
+          description: Enroll a business partner location
+          required: true
+          schema:
+            $ref: '#/definitions/BusinessPartnerLocationDetails'
+      responses:
+        '200':
+          description: Successfully enrolled business partner location
+          schema:
+            $ref: '#/definitions/BusinessPartnerLocationsResponse'
+        '400':
+          description: Invalid Request
+          schema:
+            $ref: '#/definitions/Error'
+        '401':
+          description: Unauthorized access to information
+          schema:
+            $ref: '#/definitions/UnauthAccessError'
+        '500':
+          description: Service not available
+          schema:
+            $ref: '#/definitions/ServiceUnAvailableError'
+      x-action: storeEnrollment
   /loyalty-ids/searches:
     post:
       tags:
@@ -52,17 +102,17 @@ paths:
           schema:
             $ref: '#/definitions/TransactionResponse'
         '400':
-          description: Invalid Request
+          description: Invalid Key Serial Number
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/TransactionKsnError'
         '401':
           description: Unauthorized access to information
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/UnauthAccessError'
         '500':
           description: Service not available
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ServiceUnAvailableError'
       x-action: getLoyaltyId
   /members:
     post:
@@ -94,17 +144,17 @@ paths:
           schema:
             $ref: '#/definitions/MemberMerchantResponse'
         '400':
-          description: Invalid Request
+          description: Invalid request
           schema:
             $ref: '#/definitions/Error'
         '401':
           description: Unauthorized access to information
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/UnauthAccessError'
         '500':
           description: Service not available
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ServiceUnAvailableError'
       x-action: memberEnrollment
   '/members/{member_reference_id}':
     get:
@@ -126,7 +176,7 @@ paths:
           default: 108d9290-5516-4235-ac0d-fddb04c6b003
         - name: member_reference_id
           in: path
-          description: Unique reference key for a member
+          description: A system generated unique identifier for the Member enrolled in MLC
           required: true
           type: string
           default: kT87TFbPtw6z100047
@@ -138,15 +188,15 @@ paths:
         '400':
           description: Member reference id not found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/MemberRefIdError'
         '401':
           description: Unauthorized access to information
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/UnauthAccessError'
         '500':
           description: Service not available
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ServiceUnAvailableError'
       x-action: getMember
     put:
       tags:
@@ -167,7 +217,7 @@ paths:
           default: 108d9290-5516-4235-ac0d-fddb04c6b003
         - name: member_reference_id
           in: path
-          description: Unique reference key for a member
+          description: A system generated unique identifier for the Member enrolled in MLC
           required: true
           type: string
           default: kT87TFbPtw6z100047
@@ -183,15 +233,15 @@ paths:
         '400':
           description: Member does not exist
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/MemberRefIdError'
         '401':
           description: Unauthorized access to information
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/UnauthAccessError'
         '500':
           description: Service not available
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ServiceUnAvailableError'
       x-action: updateMember
     delete:
       tags:
@@ -212,7 +262,7 @@ paths:
           default: 108d9290-5516-4235-ac0d-fddb04c6b003
         - name: member_reference_id
           in: path
-          description: Unique reference key for a member
+          description: A system generated unique identifier for the Member enrolled in MLC
           required: true
           type: string
           default: kT87TFbPtw6z100047
@@ -222,15 +272,15 @@ paths:
         '400':
           description: Member reference id not found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/MemberRefIdError'
         '401':
           description: Unauthorized access to information
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/UnauthAccessError'
         '500':
           description: Service not available
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ServiceUnAvailableError'
       x-action: deleteMember
   '/members/{member_reference_id}/loyalty-connects':
     get:
@@ -252,19 +302,19 @@ paths:
           default: 108d9290-5516-4235-ac0d-fddb04c6b003
         - name: member_reference_id
           in: path
-          description: Unique reference key for a member
+          description: A system generated unique identifier for the Member enrolled in MLC
           required: true
           type: string
           default: kT87TFbPtw6z100047
         - name: member_merchant_reference_id
           in: query
-          description: Unique reference key that identifies member and merchant loyalty program association
+          description: A system generated unique identifier for the Member and Merchant Loyalty ID connection
           required: false
           type: string
           default: 3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0
         - name: payment_card_reference_id
           in: query
-          description: Unique reference key for a member's payment card
+          description: A system generated unique identifier for the Payment card enrolled for the Member
           required: false
           type: string
           default: 5f0d07c1-6fc4-4e74-9152-0e20bb7104d9
@@ -276,17 +326,17 @@ paths:
             items:
               $ref: '#/definitions/LoyaltyConnectResponse'
         '400':
-          description: Payment Card or Member Merchant should not be blank
+          description: Member reference id not found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/MemberRefIdError'
         '401':
           description: Unauthorized access to information
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/UnauthAccessError'
         '500':
           description: Service not available
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ServiceUnAvailableError'
       x-action: getLoyaltyConnects
     post:
       tags:
@@ -307,7 +357,7 @@ paths:
           default: 108d9290-5516-4235-ac0d-fddb04c6b003
         - name: member_reference_id
           in: path
-          description: Unique reference key for a member
+          description: A system generated unique identifier for the Member enrolled in MLC
           required: true
           type: string
           default: kT87TFbPtw6z100047
@@ -323,17 +373,17 @@ paths:
           schema:
             $ref: '#/definitions/EnrollLoyaltyConnectResponse'
         '400':
-          description: Invalid Request
+          description: Member reference id not found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/MemberRefIdError'
         '401':
           description: Unauthorized access to information
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/UnauthAccessError'
         '500':
           description: Service not available
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ServiceUnAvailableError'
       x-action: loyaltyConnectEnrollment
   '/members/{member_reference_id}/loyalty-connects/{loyalty_connect_reference_id}':
     get:
@@ -355,13 +405,13 @@ paths:
           default: 108d9290-5516-4235-ac0d-fddb04c6b003
         - name: member_reference_id
           in: path
-          description: Unique reference key for a member
+          description: A system generated unique identifier for the Member enrolled in MLC
           required: true
           type: string
           default: kT87TFbPtw6z100047
         - name: loyalty_connect_reference_id
           in: path
-          description: Unique reference key for the connection of a loyalty ID and payment card
+          description: A system generated unique identifier for the Member's Payment Card and Merchant Loyalty ID connection
           required: true
           type: string
           default: f962ad86-d408-467c-8b74-14983569d36c
@@ -371,17 +421,17 @@ paths:
           schema:
             $ref: '#/definitions/LoyaltyConnectResponse'
         '400':
-          description: Loyalty Connect Reference Id should not be blank
+          description: Member reference id not found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/MemberRefIdError'
         '401':
           description: Unauthorized access to information
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/UnauthAccessError'
         '500':
           description: Service not available
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ServiceUnAvailableError'
       x-action: getLoyaltyConnect
     delete:
       tags:
@@ -402,13 +452,13 @@ paths:
           default: 108d9290-5516-4235-ac0d-fddb04c6b003
         - name: member_reference_id
           in: path
-          description: Unique reference key for a member
+          description: A system generated unique identifier for the Member enrolled in MLC
           required: true
           type: string
           default: kT87TFbPtw6z100047
         - name: loyalty_connect_reference_id
           in: path
-          description: Unique reference key for the connection of a loyalty ID and payment card
+          description: A system generated unique identifier for the Member's Payment Card and Merchant Loyalty ID connection
           required: true
           type: string
           default: f962ad86-d408-467c-8b74-14983569d36c
@@ -416,17 +466,17 @@ paths:
         '202':
           description: Loyalty Connect successfully deleted
         '400':
-          description: Loyalty Connect Reference Id should not be blank
+          description: Member reference id not found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/MemberRefIdError'
         '401':
           description: Unauthorized access to information
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/UnauthAccessError'
         '500':
           description: Service not available
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ServiceUnAvailableError'
       x-action: loyaltyConnectDelete
   '/members/{member_reference_id}/loyalty-programs':
     get:
@@ -448,19 +498,19 @@ paths:
           default: 108d9290-5516-4235-ac0d-fddb04c6b003
         - name: member_reference_id
           in: path
-          description: Unique reference key for a member
+          description: A system generated unique identifier for the Member enrolled in MLC
           required: true
           type: string
           default: kT87TFbPtw6z100047
         - name: loyalty_id
           in: query
-          description: Loyalty Id represents unique member merchant association
+          description: Unique Identifier assigned by Merchant to its every Member
           required: false
           type: string
-          default: vk@mastercard.com
+          default: jsmith@mastercard.com
         - name: merchant_code
           in: query
-          description: Unique code assigned to a merchant on boarded with MLC
+          description: Unique Identifier assigned by Mastercard to every partner onboarded with MLC
           required: false
           type: string
           default: MLCMerchant
@@ -470,17 +520,17 @@ paths:
           schema:
             $ref: '#/definitions/MerchantLoyaltyProgramSearchResponse'
         '400':
-          description: Member not found
+          description: Member reference id not found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/MemberRefIdError'
         '401':
           description: Unauthorized access to information
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/UnauthAccessError'
         '500':
           description: Service not available
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ServiceUnAvailableError'
       x-action: getAllMemberMerchantLoyaltyProgram
     post:
       tags:
@@ -501,7 +551,7 @@ paths:
           default: 108d9290-5516-4235-ac0d-fddb04c6b003
         - name: member_reference_id
           in: path
-          description: Unique reference key for a member
+          description: A system generated unique identifier for the Member enrolled in MLC
           required: true
           type: string
           default: kT87TFbPtw6z100047
@@ -517,21 +567,21 @@ paths:
           schema:
             $ref: '#/definitions/MerchantLoyaltyProgramResponse'
         '400':
-          description: Invalid Request
+          description: Member reference id not found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/MemberRefIdError'
         '401':
           description: Unauthorized access to information
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/UnauthAccessError'
         '409':
           description: Member has already joined/connected to merchant loyalty program
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/MemberMerchantAlreadyJoinedError'
         '500':
           description: Service not available
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ServiceUnAvailableError'
       x-action: memberMerchantEnrollment
   '/members/{member_reference_id}/loyalty-programs/{member_merchant_reference_id}':
     get:
@@ -553,13 +603,13 @@ paths:
           default: 108d9290-5516-4235-ac0d-fddb04c6b003
         - name: member_reference_id
           in: path
-          description: Unique reference key for a member
+          description: A system generated unique identifier for the Member enrolled in MLC
           required: true
           type: string
           default: kT87TFbPtw6z100047
         - name: member_merchant_reference_id
           in: path
-          description: Unique reference key that identifies member and merchant loyalty program association
+          description: A system generated unique identifier for the Member and Merchant Loyalty ID connection
           required: true
           type: string
           default: 3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0
@@ -571,15 +621,15 @@ paths:
         '400':
           description: Member reference id not found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/MemberRefIdError'
         '401':
           description: Unauthorized access to information
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/UnauthAccessError'
         '500':
           description: Service not available
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ServiceUnAvailableError'
       x-action: getMemberMerchantLoyaltyProgram
     delete:
       tags:
@@ -600,13 +650,13 @@ paths:
           default: 108d9290-5516-4235-ac0d-fddb04c6b003
         - name: member_reference_id
           in: path
-          description: Unique reference key for a member
+          description: A system generated unique identifier for the Member enrolled in MLC
           required: true
           type: string
           default: kT87TFbPtw6z100047
         - name: member_merchant_reference_id
           in: path
-          description: Unique reference key that identifies member and merchant loyalty program association
+          description: A system generated unique identifier for the Member and Merchant Loyalty ID connection
           required: true
           type: string
           default: 3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0
@@ -616,15 +666,15 @@ paths:
         '400':
           description: Member reference id not found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/MemberRefIdError'
         '401':
           description: Unauthorized access to information
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/UnauthAccessError'
         '500':
           description: Service not available
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ServiceUnAvailableError'
       x-action: deleteMemberMerchantLoyaltyProgram
   '/members/{member_reference_id}/loyalty-programs/{member_merchant_reference_id}/loyalty-id':
           put:
@@ -666,17 +716,17 @@ paths:
               '204':
                 description: Merchant loyalty program is updated successfully
               '400':
-                description: Invalid Request
+                description: Member reference id not found
                 schema:
-                  $ref: '#/definitions/Error'
+                  $ref: '#/definitions/MemberRefIdError'
               '401':
                 description: Unauthorized access to information
                 schema:
-                  $ref: '#/definitions/Error'
+                  $ref: '#/definitions/UnauthAccessError'
               '500':
                 description: Service not available
                 schema:
-                  $ref: '#/definitions/Error'
+                  $ref: '#/definitions/ServiceUnAvailableError'
   '/members/{member_reference_id}/payment-cards':
     get:
       tags:
@@ -697,7 +747,7 @@ paths:
           default: 108d9290-5516-4235-ac0d-fddb04c6b003
         - name: member_reference_id
           in: path
-          description: Unique reference key for a member
+          description: A system generated unique identifier for the Member enrolled in MLC
           required: true
           type: string
           default: kT87TFbPtw6z100047
@@ -709,17 +759,17 @@ paths:
             items:
               $ref: '#/definitions/PaymentCardDetails'
         '400':
-          description: Member reference id should not be blank
+          description: Member reference id not found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/MemberRefIdError'
         '401':
           description: Unauthorized access to information
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/UnauthAccessError'
         '500':
           description: Service not available
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ServiceUnAvailableError'
       x-action: getPaymentCards
     post:
       tags:
@@ -740,7 +790,7 @@ paths:
           default: 108d9290-5516-4235-ac0d-fddb04c6b003
         - name: member_reference_id
           in: path
-          description: Unique reference key for a member
+          description: A system generated unique identifier for the Member enrolled in MLC
           required: true
           type: string
           default: kT87TFbPtw6z100047
@@ -756,17 +806,21 @@ paths:
           schema:
             $ref: '#/definitions/PaymentCardResponse'
         '400':
-          description: Invalid Request
+          description: Member reference id not found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/MemberRefIdError'
+        '409':
+          description: Payment Card already enrolled for the member
+          schema:
+            $ref: '#/definitions/PaymentCardAlreadyEnrolledError'
         '401':
           description: Unauthorized access to information
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/UnauthAccessError'
         '500':
           description: Service not available
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ServiceUnAvailableError'
       x-action: paymentCardEnrollment
   '/members/{member_reference_id}/payment-cards/{payment_card_reference_id}':
     get:
@@ -788,13 +842,13 @@ paths:
           default: 108d9290-5516-4235-ac0d-fddb04c6b003
         - name: member_reference_id
           in: path
-          description: Unique reference key for a member
+          description: A system generated unique identifier for the Member enrolled in MLC
           required: true
           type: string
           default: kT87TFbPtw6z100047
         - name: payment_card_reference_id
           in: path
-          description: Unique reference key for a member's payment card
+          description: A system generated unique identifier for the Payment card enrolled for the Member
           required: true
           type: string
           default: 5f0d07c1-6fc4-4e74-9152-0e20bb7104d9
@@ -804,17 +858,17 @@ paths:
           schema:
             $ref: '#/definitions/PaymentCardDetails'
         '400':
-          description: Member reference id should not be blank
+          description: Member reference id not found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/MemberRefIdError'
         '401':
           description: Unauthorized access to information
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/UnauthAccessError'
         '500':
           description: Service not available
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ServiceUnAvailableError'
       x-action: getPaymentCardDetails
     put:
       tags:
@@ -835,13 +889,13 @@ paths:
           default: 108d9290-5516-4235-ac0d-fddb04c6b003
         - name: member_reference_id
           in: path
-          description: Unique reference key for a member
+          description: A system generated unique identifier for the Member enrolled in MLC
           required: true
           type: string
           default: kT87TFbPtw6z100047
         - name: payment_card_reference_id
           in: path
-          description: Unique reference key for a member's payment card
+          description: A system generated unique identifier for the Payment card enrolled for the Member
           required: true
           type: string
           default: 5f0d07c1-6fc4-4e74-9152-0e20bb7104d9
@@ -857,17 +911,17 @@ paths:
         '204':
           description: No Content
         '400':
-          description: Bank Card Number should not be blank
+          description: Member reference id not found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/MemberRefIdError'
         '401':
           description: Unauthorized access to information
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/UnauthAccessError'
         '500':
           description: Service not available
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ServiceUnAvailableError'
       x-action: paymentCardUpdate
     delete:
       tags:
@@ -888,13 +942,13 @@ paths:
           default: 108d9290-5516-4235-ac0d-fddb04c6b003
         - name: member_reference_id
           in: path
-          description: Unique reference key for a member
+          description: A system generated unique identifier for the Member enrolled in MLC
           required: true
           type: string
           default: kT87TFbPtw6z100047
         - name: payment_card_reference_id
           in: path
-          description: Unique reference key for a member's payment card
+          description: A system generated unique identifier for the Payment card enrolled for the Member
           required: true
           type: string
           default: 5f0d07c1-6fc4-4e74-9152-0e20bb7104d9
@@ -902,17 +956,17 @@ paths:
         '202':
           description: Payment card is successfully deleted
         '400':
-          description: Member and payment card reference id should not be blank
+          description: Member reference id not found
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/MemberRefIdError'
         '401':
           description: Unauthorized access to information
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/UnauthAccessError'
         '500':
           description: Service not available
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ServiceUnAvailableError'
       x-action: paymentCardDelete
   /merchants:
     get:
@@ -932,20 +986,77 @@ paths:
             type: array
             items:
              $ref: '#/definitions/Merchant'
-        '400':
-          description: Invalid Request
-          schema:
-            $ref: '#/definitions/Error'
         '401':
           description: Unauthorized access to information
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/UnauthAccessError'
         '500':
           description: Service not available
           schema:
-            $ref: '#/definitions/Error'
+            $ref: '#/definitions/ServiceUnAvailableError'
       x-action: getMerchants
 definitions:
+  BusinessPartnerLocationDetails:
+    type: object
+    required:
+      - icaNumber
+      - storeName
+    properties:
+      addressLine1:
+        type: string
+        example: 1 Notting Hill High Street
+        description: Address description
+      addressLine2:
+        type: string
+        example: London, W11 1AB
+        description: Address description
+      country:
+        type: string
+        example: UK
+        description: Country
+      icaNumber:
+        type: string
+        example: '234214'
+        description: Business partner Code associated with payment terminal.
+      storeEmail:
+        type: string
+        example: jsmith@mastercard.com
+        description: Valid email address
+      storeName:
+        type: string
+        example: Liberty Store
+        description: Store Name of Business partner Code associated with payment terminal.
+      storePhone:
+        type: string
+        example: +44 (0) 7970 225 256
+        description: Valid mobile phone number
+      storeType:
+        type: string
+        example: full-price
+        description: Store Type
+      vatNumber:
+        type: string
+        example: GB 8978654
+        description: VAT number
+  BusinessPartnerLocationsResponse:
+    type: object
+    required:
+      - locationId
+      - locationReferenceId
+      - terminalId
+    properties:
+      locationId:
+        type: string
+        example: G3243423J4534
+        description: BusinessPartnerLocationDetails Identity
+      locationReferenceId:
+        type: string
+        example: 5f0d07c1-6fc4-4e74-9152-0e20bb767589
+        description: Unique reference key for business partner location
+      terminalId:
+        type: string
+        example: K42398732L3292
+        description: Terminal Identity
   DetailItem:
     type: object
     properties:
@@ -965,9 +1076,10 @@ definitions:
       loyaltyConnectReferenceId:
         type: string
         example: f962ad86-d408-467c-8b74-14983569d36c
-        description: Unique reference key for the connection of a loyalty ID and payment card
+        description: A system generated unique identifier for the Member's Payment Card and Merchant Loyalty ID connection
   Error:
     type: object
+    description: Root object containing list of errors
     required:
       - Errors
     properties:
@@ -979,8 +1091,9 @@ definitions:
       Description:
         type: string
         example: Invalid request
-        description: Description of the error
+        description: Detailed explanation of a specific error
       Details:
+        description: Field and data level details of the error
         type: array
         items:
           $ref: '#/definitions/DetailItem'
@@ -998,6 +1111,7 @@ definitions:
         description: Source of the error
   Errors:
     type: object
+    description: List object containing type of errors
     required:
       - Error
     properties:
@@ -1005,6 +1119,198 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ErrorItem'
+  PaymentCardAlreadyEnrolledError:
+    type: object
+    required:
+      - Errors
+    properties:
+      Errors:
+        type: object
+        required:
+          - Error
+        properties:
+          Error:
+            type: array
+            items:
+              $ref: '#/definitions/PaymentCardAlreadyEnrolledErrorItem'
+  PaymentCardAlreadyEnrolledErrorItem:
+    type: object
+    properties:
+      Description:
+        type: string
+        example: Payment Card already enrolled for the member
+      Details:
+        type: string
+        example: null
+      ReasonCode:
+        type: string
+        example: PAYMENT_CARD_ALREADY_ENROLLED
+      Recoverable:
+        type: boolean
+        example: false
+      Source:
+        type: string
+        example: ENROLL_PAYMENT_CARD
+  MemberMerchantAlreadyJoinedError:
+    type: object
+    required:
+      - Errors
+    properties:
+      Errors:
+        type: object
+        required:
+          - Error
+        properties:
+          Error:
+            type: array
+            items:
+              $ref: '#/definitions/MemberMerchantAlreadyJoinedErrorItem'
+  MemberMerchantAlreadyJoinedErrorItem:
+    type: object
+    properties:
+      Description:
+        type: string
+        example: Member has already joined/connected to merchant loyalty program
+      Details:
+        type: string
+        example: null
+      ReasonCode:
+        type: string
+        example: MERCHANT_LOYALTY_PROGRAM_ALREADY_ENROLLED
+      Recoverable:
+        type: boolean
+        example: false
+      Source:
+        type: string
+        example: memberMerchantEnrollment
+  MemberRefIdError:
+    type: object
+    required:
+      - Errors
+    properties:
+      Errors:
+        type: object
+        required:
+          - Error
+        properties:
+          Error:
+            type: array
+            items:
+              $ref: '#/definitions/MemberRefIdErrorItem'
+  MemberRefIdErrorItem:
+    type: object
+    properties:
+      Description:
+        type: string
+        example: Member not found for given partner code
+      Details:
+        type: string
+        example: null
+      ReasonCode:
+        type: string
+        example: MEMBER_NOT_FOUND
+      Recoverable:
+        type: boolean
+        example: false
+      Source:
+        type: string
+        example: Member
+  TransactionKsnError:
+    type: object
+    required:
+      - Errors
+    properties:
+      Errors:
+        type: object
+        required:
+          - Error
+        properties:
+          Error:
+            type: array
+            items:
+              $ref: '#/definitions/TransactionKsnErrorItem'
+  TransactionKsnErrorItem:
+    type: object
+    properties:
+      Description:
+        type: string
+        example: Invalid Key Serial Number
+      Details:
+        type: string
+        example: null
+      ReasonCode:
+        type: string
+        example: INVALID_KSN
+      Recoverable:
+        type: boolean
+        example: false
+      Source:
+        type: string
+        example: Transaction
+  UnauthAccessError:
+    type: object
+    required:
+      - Errors
+    properties:
+      Errors:
+        type: object
+        required:
+          - Error
+        properties:
+          Error:
+            type: array
+            items:
+              $ref: '#/definitions/UnauthAccessErrorItem'
+  UnauthAccessErrorItem:
+    type: object
+    properties:
+      Description:
+        type: string
+        example: Unauthorized access to information
+      Details:
+        type: string
+        example: null
+      ReasonCode:
+        type: string
+        example: UNAUTHORIZED_ACCESS
+      Recoverable:
+        type: boolean
+        example: true
+      Source:
+        type: string
+        example: Service
+  ServiceUnAvailableError:
+    type: object
+    required:
+      - Errors
+    properties:
+      Errors:
+        type: object
+        required:
+          - Error
+        properties:
+          Error:
+            type: array
+            items:
+              $ref: '#/definitions/ServiceUnAvailableErrorItem'
+  ServiceUnAvailableErrorItem:
+    type: object
+    properties:
+      Description:
+        type: string
+        example: Downstream service not available
+      Details:
+        type: string
+        example: null
+      ReasonCode:
+        type: string
+        example: SERVICE_FAIL
+      Recoverable:
+        type: boolean
+        example: true
+      Source:
+        type: string
+        example: Downstream Service
   LoyaltyConnect:
     type: object
     required:
@@ -1014,11 +1320,11 @@ definitions:
       memberMerchantReferenceId:
         type: string
         example: 3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0
-        description: Unique reference key that identifies member and merchant loyalty program association
+        description: A system generated unique identifier for the Member and Merchant Loyalty ID connection
       paymentCardReferenceId:
         type: string
         example: 5f0d07c1-6fc4-4e74-9152-0e20bb7104d9
-        description: Unique reference key for a member's payment card
+        description: A system generated unique identifier for the Payment card enrolled for the Member
   LoyaltyConnectResponse:
     type: object
     required:
@@ -1032,23 +1338,23 @@ definitions:
       bankCardNumber:
         type: string
         example: XXXXXXXXXXXX4444
-        description: Payment Card number that represents a valid card the MLC user wants to connect
+        description: Masked Payment Card number connected by the Member
       loyaltyConnectReferenceId:
         type: string
         example: f962ad86-d408-467c-8b74-14983569d36c
-        description: Unique reference key for the connection of a loyalty ID and payment card
+        description: A system generated unique identifier for the Member's Payment Card and Merchant Loyalty ID connection
       loyaltyId:
         type: string
-        example: vk@mastercard.com
-        description: Loyalty Id represents unique member merchant association
+        example: jsmith@mastercard.com
+        description: Unique Identifier assigned by Merchant to its every Member
       memberMerchantReferenceId:
         type: string
         example: 3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0
-        description: Unique reference key that identifies member and merchant loyalty program association
+        description: A system generated unique identifier for the Member and Merchant Loyalty ID connection
       merchantCode:
         type: string
         example: MLCMerchant
-        description: Unique code assigned to a merchant on boarded with MLC
+        description: Unique Identifier assigned by Mastercard to every partner onboarded with MLC.
       paymentCardReferenceId:
         type: string
         example: 5f0d07c1-6fc4-4e74-9152-0e20bb7104d9
@@ -1058,7 +1364,7 @@ definitions:
       properties:
         loyaltyId:
           type: string
-          example: vk@mastercard.com
+          example: jsmith@mastercard.com
           description: Loyalty Id represents unique member merchant association
   Member:
       type: object
@@ -1070,110 +1376,110 @@ definitions:
         addressLine1:
           type: string
           example: 10 Upper Bank Street
-          description: Address description
+          description: Address Line 1 of the Customer's address
         addressLine2:
           type: string
           example: Canary Wharf
-          description: Address description
+          description: Address Line 2 of the Customer's address
         addressLine3:
           type: string
-          description: Address description
+          description: Address Line 3 of the Customer's address
         cityName:
           type: string
           example: London
-          description: City name
+          description: City name as per Customer's address
         countryCode:
           type: string
           example: UK
-          description: Country Code
+          description: Country Code as per Customer's address
         emailAddress:
           type: string
-          example: vk@mastercard.com
-          description: Valid email address
+          example: jsmith@mastercard.com
+          description: Valid email address used by the Customer
         firstName:
           type: string
-          example: Virat
-          description: First name of the user
+          example: John
+          description: Customer's first name
         lastName:
           type: string
-          example: Kohli
-          description: Last name of the user
+          example: Smith
+          description: Customer's last name
         mobilePhoneNumber:
           type: string
-          example: +44 (0) 7970 225 256
-          description: Valid mobile phone number
+          example: +44 (0) 7911 123 456
+          description: Valid mobile phone number used by the Customer
         partnerCode:
           type: string
           example: MLCMerchant
-          description: 'For Merchant, this is the Merchant code assigned by Mastercard to the Merchant. For Issuer, this is the ICA Number ? Interbank Card Association Number assigned by Mastercard to the Issuer.'
+          description: 'For every business partner that comes on board with MLC, Mastercard assigns a Interbank Card Association (ICA) Number used to identify that partner. The Partner Code field will receive this ICA Number.'
         postalCode:
           type: string
           example: E14 5NP
-          description: Postal Code
+          description: Postal Code as per the Customer's address
         stateProvinceCode:
           type: string
-          description: State Code
+          description: State Code as per the Customer's address
         title:
           type: string
           example: Mr.
           description: Name prefix ( Mr. / Ms. / Mrs. etc )
         userId:
           type: string
-          example: vk@mastercard.com
-          description: Customer Identifier assigned by the Merchant to MLC user
+          example: jsmith@mastercard.com
+          description: Customer Identifier assigned by the business partner (issuer or merchant) to MLC user
         userType:
           type: string
           example: MERCHANT_LOYALTY_ID
-          description: 'For Merchant, this value has to be ?MERCHANT_LOYALTY_ID? For Issuer, this value has to be ?BANK_CUSTOMER_NUMBER?'
+          description: 'For Merchant, this value has to be MERCHANT_LOYALTY_ID. For Issuer, this value has to be BANK_CUSTOMER_NUMBER'
   MemberDetails:
     type: object
     properties:
-      addressLine1:
-        type: string
-        example: 10 Upper Bank Street
-        description: Address description
-      addressLine2:
-        type: string
-        example: Canary Wharf
-        description: Address description
-      addressLine3:
-        type: string
-        description: Address description
-      cityName:
-        type: string
-        example: London
-        description: City name
-      countryCode:
-        type: string
-        example: UK
-        description: Country Code
-      emailAddress:
-        type: string
-        example: vk@mastercard.com
-        description: Valid email address
-      firstName:
-        type: string
-        example: Virat
-        description: First name of the user
-      lastName:
-        type: string
-        example: Kohli
-        description: Last name of the user
-      mobilePhoneNumber:
-        type: string
-        example: +44 (0) 7970 225 256
-        description: Valid mobile phone number
-      postalCode:
-        type: string
-        example: E14 5NP
-        description: Postal Code
-      stateProvinceCode:
-        type: string
-        description: State Code
-      title:
-        type: string
-        example: Mr.
-        description: Name prefix ( Mr. / Ms. / Mrs. etc )
+        addressLine1:
+          type: string
+          example: 10 Upper Bank Street
+          description: Address Line 1 of the Customer's address
+        addressLine2:
+          type: string
+          example: Canary Wharf
+          description: Address Line 2 of the Customer's address
+        addressLine3:
+          type: string
+          description: Address Line 3 of the Customer's address
+        cityName:
+          type: string
+          example: London
+          description: City name as per Customer's address
+        countryCode:
+          type: string
+          example: UK
+          description: Country Code as per Customer's address
+        emailAddress:
+          type: string
+          example: jsmith@mastercard.com
+          description: Valid email address used by the Customer
+        firstName:
+          type: string
+          example: John
+          description: Customer's first name
+        lastName:
+          type: string
+          example: Smith
+          description: Customer's last name
+        mobilePhoneNumber:
+          type: string
+          example: +44 (0) 7911 123 456
+          description: Valid mobile phone number used by the Customer
+        postalCode:
+          type: string
+          example: E14 5NP
+          description: Postal Code as per the Customer's address
+        stateProvinceCode:
+          type: string
+          description: State Code as per the Customer's address
+        title:
+          type: string
+          example: Mr.
+          description: Name prefix ( Mr. / Ms. / Mrs. etc )
   MemberMerchantLoyaltyDetails:
     type: object
     required:
@@ -1182,25 +1488,25 @@ definitions:
     properties:
       loyaltyId:
         type: string
-        example: vk@mastercard.com
-        description: Loyalty Id represents unique member merchant association
+        example: jsmith@mastercard.com
+        description: Unique Identifier assigned by Merchant to its every Member
       memberMerchantReferenceId:
         type: string
         example: 3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0
-        description: Unique reference key that identifies member and merchant loyalty program association
+        description: A system generated unique identifier for the Member and Merchant Loyalty ID connection
       merchantCode:
         type: string
         example: MLCMerchant
-        description: Unique code assigned to a merchant on boarded with MLC
+        description: Unique Identifier assigned by Mastercard to every partner onboarded with MLC
       merchantName:
         type: string
         example: MLCMerchant
-        description: Merchant name
+        description: Name and description of the MLC partner as on the signed contract
       pointBalance:
         type: number
         format: double
         example: 100.27
-        description: Point balance present for a particular merchant loyalty program
+        description: Point Balance associated with the Loyalty ID in the Merchant Loyalty Program
   MemberMerchantResponse:
     type: object
     required:
@@ -1210,11 +1516,11 @@ definitions:
       memberMerchantReferenceId:
         type: string
         example: 3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0
-        description: Unique reference key that identifies member and merchant loyalty program association
+        description: A system generated unique identifier for the Member and Merchant Loyalty ID connection
       memberReferenceId:
         type: string
         example: kT87TFbPtw6z100047
-        description: Unique reference key for a member
+        description: A system generated unique identifier for the Member enrolled in MLC
   MemberResponse:
     type: object
     required:
@@ -1223,34 +1529,34 @@ definitions:
       addressLine1:
         type: string
         example: 10 Upper Bank Street
-        description: Address description
+        description: Address Line 1 of the Customer's address
       addressLine2:
         type: string
         example: Canary Wharf
-        description: Address description
+        description: Address Line 2 of the Customer's address
       addressLine3:
         type: string
-        description: Address description
+        description: Address Line 3 of the Customer's address
       cityName:
         type: string
         example: London
-        description: City name
+        description: City name as per Customer's address
       countryCode:
         type: string
         example: UK
-        description: Country Code
+        description: Country Code as per Customer's address
       emailAddress:
         type: string
-        example: vk@mastercard.com
-        description: Valid email address
+        example: jsmith@mastercard.com
+        description: Valid email address used by the Customer
       firstName:
         type: string
-        example: Virat
-        description: First name of the user
+        example: John
+        description: Customer's first name
       lastName:
         type: string
-        example: Kohli
-        description: Last name of the user
+        example: Smith
+        description: Customer's last name
       loyaltyConnectResponses:
         type: array
         items:
@@ -1258,15 +1564,15 @@ definitions:
       memberReferenceId:
         type: string
         example: kT87TFbPtw6z100047
-        description: Unique reference key for a member
+        description: A system generated unique identifier for the Member enrolled in MLC
       merchantLoyaltyDetails:
         type: array
         items:
           $ref: '#/definitions/MemberMerchantLoyaltyDetails'
       mobilePhoneNumber:
         type: string
-        example: +44 (0) 7970 225 256
-        description: Valid mobile phone number
+        example: +44 (0) 7911 123 456
+        description: Valid mobile phone number used by the Customer
       paymentCards:
         type: array
         items:
@@ -1274,10 +1580,10 @@ definitions:
       postalCode:
         type: string
         example: E14 5NP
-        description: Postal Code
+        description: Postal Code as per the Customer's address
       stateProvinceCode:
         type: string
-        description: State Code
+        description: State Code as per the Customer's address
       title:
         type: string
         example: Mr.
@@ -1303,12 +1609,12 @@ definitions:
     properties:
       loyaltyId:
         type: string
-        example: vk@mastercard.com
-        description: Loyalty Id represents unique member merchant association
+        example: jsmith@mastercard.com
+        description: Unique Identifier assigned by Merchant to its every Member
       merchantCode:
         type: string
         example: MLCMerchant
-        description: Unique code assigned to a merchant on boarded with MLC
+        description: Unique Identifier assigned by Mastercard to every partner onboarded with MLC
   MerchantLoyaltyProgramResponse:
     type: object
     required:
@@ -1317,12 +1623,12 @@ definitions:
     properties:
       loyaltyId:
         type: string
-        example: vk@mastercard.com
-        description: Loyalty Id represents unique member merchant association
+        example: jsmith@mastercard.com
+        description: Unique Identifier assigned by Merchant to its every Member
       memberMerchantReferenceId:
         type: string
         example: 3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0
-        description: Unique reference key that identifies member and merchant loyalty program association
+        description: A system generated unique identifier for the Member and Merchant Loyalty ID connection
   MerchantLoyaltyProgramSearchResponse:
     type: object
     required:
@@ -1335,7 +1641,7 @@ definitions:
       memberReferenceId:
         type: string
         example: kT87TFbPtw6z100047
-        description: Unique reference key for a member
+        description: A system generated unique identifier for the Member enrolled in MLC
   PaymentCard:
     type: object
     required:
@@ -1358,7 +1664,7 @@ definitions:
       bankCardNumber:
         type: string
         example: XXXXXXXXXXXX4444
-        description: Payment Card number that represents a valid card the MLC user wants to connect
+        description: Masked Payment Card number connected by the user in MLC
       bankCardProduct:
         type: string
         example: BLACK
@@ -1366,7 +1672,7 @@ definitions:
       paymentCardReferenceId:
         type: string
         example: 5f0d07c1-6fc4-4e74-9152-0e20bb7104d9
-        description: Unique reference key for a member's payment card
+        description: A system generated unique identifier for the Payment card enrolled for the Member
   PaymentCardResponse:
     type: object
     required:
@@ -1375,7 +1681,7 @@ definitions:
       paymentCardReferenceId:
         type: string
         example: 5f0d07c1-6fc4-4e74-9152-0e20bb7104d9
-        description: Unique reference key for a member's payment card
+        description: A system generated unique identifier for the Payment card enrolled for the Member
   Transaction:
     type: object
     required:
@@ -1385,7 +1691,7 @@ definitions:
       bankCardNumber:
         type: string
         example: '000000014B2E3883F0723361900276A1366153731533059120C18075E4B12160232E7BD698D680EEABF32DA23B4FF0B41E116C3FB0C45AA78F0BF21F9A178F5F79EFE80A851F5B575BB56CA7'
-        description: Payment Card number that represents a valid card the MLC user wants to connect
+        description: A cipher text that represents the encrypted value of the payment card number used by the Customer when he/she taps the payment card on the NFC based Loyalty Connect Reader. An application installed on this reader, receives the encrypted payment card number and invokes this endpoint with other details related to the card and Merchant. MLC decrypts and looks up the payment card number to retrieve the associated Loyalty ID for the Merchant.
       issuerName:
         type: string
         example: MLCIssuer
@@ -1393,27 +1699,27 @@ definitions:
       iv:
         type: string
         example: '0000000000000000'
-        description: Initial Vector
+        description: Initialization vector used in decryption and identification of payment card number
       ksn:
         type: string
         example: 4D43544553A9FAE00008
-        description: Key Serial Number
+        description: Key Serial Number to lookup the decryption key for payment card number
       merchantLocationId:
         type: string
         example: LOC1001
-        description: Merchant location id
+        description: Merchant location id as sent from the Merchant system
       paymentCardNetworkDetails:
         type: string
         example: Mastercard
-        description: Network used for the transaction
+        description: Network provider of the payment card used in the transaction
       terminalId:
         type: string
         example: MLCMerchant001
-        description: Merchant terminal id
+        description: Merchant terminal id as sent from the Merchant system
   TransactionResponse:
     type: object
     properties:
       loyaltyId:
         type: string
-        example: vk@mastercard.com
-        description: Loyalty Id represents unique member merchant association
+        example: jsmith@mastercard.com
+        description: The Loyalty ID connected with the (encrypted) payment card number received in the request, for the Merchant, where the Customer made the Loyalty Connect transaction.

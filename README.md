@@ -61,6 +61,7 @@ This reference app describes one end to end flow for using MasterCard Loyalty Co
 15. Delete Payment Card using memberReferenceId and paymentCardReferenceId
 16. Get Member to verify Loyalty Connect and Payment Card got deleted or not
 17. Finally, delete Member to delete member using memberReferenceId
+18. Enroll business partner location
 
 ## API Expected sample Response but values varies for reference id's
 ### Enroll Member
@@ -324,6 +325,16 @@ Expected response from MasterCard Loyalty Connect API: 202
 ```
 Member is successfully deleted
 ```
+
+### Enroll Business partner location
+Expected response from Business Partner Location API:
+```
+{
+  "locationId": "K42398732L3292",
+  "terminalId": "G3243423J4534",
+  "locationReferenceId": "b1aba2a9-d426-4cf7-be76-9a9b4e9e3762"
+}
+
 ## Author
 - Name: **Mastercard**
 - Contact: **apisupport@mastercard.com**

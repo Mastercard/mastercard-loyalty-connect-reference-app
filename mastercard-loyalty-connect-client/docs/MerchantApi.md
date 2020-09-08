@@ -1,6 +1,6 @@
 # MerchantApi
 
-All URIs are relative to *http://api.mastercard.com/mlc/api*
+All URIs are relative to *http://api.mastercard.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,11 +9,11 @@ Method | HTTP request | Description
 
 <a name="getMerchants"></a>
 # **getMerchants**
-> List&lt;Merchant&gt; getMerchants()
+> Merchant getMerchants()
 
 Get Merchants
 
-Get all on-boarded merchants.
+Get all on-boarded merchants
 
 ### Example
 ```java
@@ -27,11 +27,11 @@ import com.mastercard.developer.mastercard_loyalty_connect_client.api.MerchantAp
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://api.mastercard.com/mlc/api");
+    defaultClient.setBasePath("http://api.mastercard.com");
 
     MerchantApi apiInstance = new MerchantApi(defaultClient);
     try {
-      List<Merchant> result = apiInstance.getMerchants();
+      Merchant result = apiInstance.getMerchants();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MerchantApi#getMerchants");
@@ -49,7 +49,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;Merchant&gt;**](Merchant.md)
+[**Merchant**](Merchant.md)
 
 ### Authorization
 
@@ -63,7 +63,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successfully retrieved all merchants |  -  |
+**200** | Merchant loyalty program retrieved successfully |  -  |
 **401** | Unauthorized access to information |  -  |
 **500** | Service not available |  -  |
 

@@ -6,8 +6,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**loyaltyId** | **String** | Unique Identifier assigned by Merchant to its every Member | 
-**memberMerchantReferenceId** | **String** | A system generated unique identifier for the Member and Merchant Loyalty ID connection | 
+**loyaltyId** | **String** | Loyalty Id represents unique member merchant association | 
+**memberMerchantReferenceId** | **String** | Unique reference key that identifies member and merchant loyalty program association | 
 
 
 

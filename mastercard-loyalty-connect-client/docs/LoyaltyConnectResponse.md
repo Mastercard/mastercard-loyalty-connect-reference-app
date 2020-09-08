@@ -6,12 +6,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**bankCardNumber** | **String** | Masked Payment Card number connected by the Member | 
-**loyaltyConnectReferenceId** | **String** | A system generated unique identifier for the Member&#39;s Payment Card and Merchant Loyalty ID connection | 
-**loyaltyId** | **String** | Unique Identifier assigned by Merchant to its every Member | 
-**memberMerchantReferenceId** | **String** | A system generated unique identifier for the Member and Merchant Loyalty ID connection | 
-**merchantCode** | **String** | Unique Identifier assigned by Mastercard to every partner onboarded with MLC. | 
+**bankCardNumber** | **String** | Payment Card number that represents a valid card the MLC user wants to connect | 
+**merchantCode** | **String** | Unique code assigned to a merchant on boarded with MLC | 
+**loyaltyId** | **String** | Loyalty Id represents unique member merchant association | 
 **paymentCardReferenceId** | **String** | Unique reference key for a member&#39;s payment card | 
+**memberMerchantReferenceId** | **String** | Unique reference key that identifies member and merchant loyalty program association | 
+**loyaltyConnectReferenceId** | **String** | Unique reference key for the connection of a loyalty ID and payment card | 
 
 
 

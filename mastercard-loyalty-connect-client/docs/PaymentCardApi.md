@@ -1,6 +1,6 @@
 # PaymentCardApi
 
-All URIs are relative to *http://api.mastercard.com/mlc/api*
+All URIs are relative to *http://api.mastercard.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="deletePaymentCard"></a>
 # **deletePaymentCard**
-> deletePaymentCard(memberReferenceId, paymentCardReferenceId, xMerchantKey)
+> deletePaymentCard(xMerchantKey, memberReferenceId, paymentCardReferenceId)
 
 Disconnects a payment card for a member
 
@@ -31,14 +31,14 @@ import com.mastercard.developer.mastercard_loyalty_connect_client.api.PaymentCar
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://api.mastercard.com/mlc/api");
+    defaultClient.setBasePath("http://api.mastercard.com");
 
     PaymentCardApi apiInstance = new PaymentCardApi(defaultClient);
-    String memberReferenceId = "\"kT87TFbPtw6z100047\""; // String | A system generated unique identifier for the Member enrolled in MLC
-    String paymentCardReferenceId = "\"5f0d07c1-6fc4-4e74-9152-0e20bb7104d9\""; // String | A system generated unique identifier for the Payment card enrolled for the Member
-    String xMerchantKey = "\"108d9290-5516-4235-ac0d-fddb04c6b003\""; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
+    String xMerchantKey = 108d9290-5516-4235-ac0d-fddb04c6b003; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
+    String memberReferenceId = kT87TFbPtw6z100047; // String | Unique reference key for a member
+    String paymentCardReferenceId = 5f0d07c1-6fc4-4e74-9152-0e20bb7104d9; // String | Unique reference key for a member's payment card
     try {
-      apiInstance.deletePaymentCard(memberReferenceId, paymentCardReferenceId, xMerchantKey);
+      apiInstance.deletePaymentCard(xMerchantKey, memberReferenceId, paymentCardReferenceId);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentCardApi#deletePaymentCard");
       System.err.println("Status code: " + e.getCode());
@@ -54,9 +54,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberReferenceId** | **String**| A system generated unique identifier for the Member enrolled in MLC | [default to &quot;kT87TFbPtw6z100047&quot;]
- **paymentCardReferenceId** | **String**| A system generated unique identifier for the Payment card enrolled for the Member | [default to &quot;5f0d07c1-6fc4-4e74-9152-0e20bb7104d9&quot;]
- **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding | [optional] [default to &quot;108d9290-5516-4235-ac0d-fddb04c6b003&quot;]
+ **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding |
+ **memberReferenceId** | **String**| Unique reference key for a member |
+ **paymentCardReferenceId** | **String**| Unique reference key for a member&#39;s payment card |
 
 ### Return type
 
@@ -81,7 +81,7 @@ No authorization required
 
 <a name="enrollPaymentCard"></a>
 # **enrollPaymentCard**
-> PaymentCardResponse enrollPaymentCard(memberReferenceId, paymentCard, xMerchantKey)
+> PaymentCardResponse enrollPaymentCard(xMerchantKey, memberReferenceId, paymentCard)
 
 Connect payment card for a member
 
@@ -99,14 +99,14 @@ import com.mastercard.developer.mastercard_loyalty_connect_client.api.PaymentCar
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://api.mastercard.com/mlc/api");
+    defaultClient.setBasePath("http://api.mastercard.com");
 
     PaymentCardApi apiInstance = new PaymentCardApi(defaultClient);
-    String memberReferenceId = "\"kT87TFbPtw6z100047\""; // String | A system generated unique identifier for the Member enrolled in MLC
+    String xMerchantKey = 108d9290-5516-4235-ac0d-fddb04c6b003; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
+    String memberReferenceId = kT87TFbPtw6z100047; // String | Unique reference key for a member
     PaymentCard paymentCard = new PaymentCard(); // PaymentCard | Contains payment card details
-    String xMerchantKey = "\"108d9290-5516-4235-ac0d-fddb04c6b003\""; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
     try {
-      PaymentCardResponse result = apiInstance.enrollPaymentCard(memberReferenceId, paymentCard, xMerchantKey);
+      PaymentCardResponse result = apiInstance.enrollPaymentCard(xMerchantKey, memberReferenceId, paymentCard);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentCardApi#enrollPaymentCard");
@@ -123,9 +123,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberReferenceId** | **String**| A system generated unique identifier for the Member enrolled in MLC | [default to &quot;kT87TFbPtw6z100047&quot;]
+ **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding |
+ **memberReferenceId** | **String**| Unique reference key for a member |
  **paymentCard** | [**PaymentCard**](PaymentCard.md)| Contains payment card details |
- **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding | [optional] [default to &quot;108d9290-5516-4235-ac0d-fddb04c6b003&quot;]
 
 ### Return type
 
@@ -145,13 +145,13 @@ No authorization required
 |-------------|-------------|------------------|
 **201** | Successfully enrolled payment card for given partner code |  -  |
 **400** | Member reference id not found |  -  |
-**401** | Unauthorized access to information |  -  |
 **409** | Payment Card already enrolled for the member |  -  |
+**401** | Unauthorized access to information |  -  |
 **500** | Service not available |  -  |
 
 <a name="getPaymentCardDetails"></a>
 # **getPaymentCardDetails**
-> PaymentCardDetails getPaymentCardDetails(memberReferenceId, paymentCardReferenceId, xMerchantKey)
+> PaymentCardDetails getPaymentCardDetails(xMerchantKey, memberReferenceId, paymentCardReferenceId)
 
 Get payment card details for a member
 
@@ -169,14 +169,14 @@ import com.mastercard.developer.mastercard_loyalty_connect_client.api.PaymentCar
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://api.mastercard.com/mlc/api");
+    defaultClient.setBasePath("http://api.mastercard.com");
 
     PaymentCardApi apiInstance = new PaymentCardApi(defaultClient);
-    String memberReferenceId = "\"kT87TFbPtw6z100047\""; // String | A system generated unique identifier for the Member enrolled in MLC
-    String paymentCardReferenceId = "\"5f0d07c1-6fc4-4e74-9152-0e20bb7104d9\""; // String | A system generated unique identifier for the Payment card enrolled for the Member
-    String xMerchantKey = "\"108d9290-5516-4235-ac0d-fddb04c6b003\""; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
+    String xMerchantKey = 108d9290-5516-4235-ac0d-fddb04c6b003; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
+    String memberReferenceId = kT87TFbPtw6z100047; // String | Unique reference key for a member
+    String paymentCardReferenceId = 5f0d07c1-6fc4-4e74-9152-0e20bb7104d9; // String | Unique reference key for a member's payment card
     try {
-      PaymentCardDetails result = apiInstance.getPaymentCardDetails(memberReferenceId, paymentCardReferenceId, xMerchantKey);
+      PaymentCardDetails result = apiInstance.getPaymentCardDetails(xMerchantKey, memberReferenceId, paymentCardReferenceId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentCardApi#getPaymentCardDetails");
@@ -193,9 +193,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberReferenceId** | **String**| A system generated unique identifier for the Member enrolled in MLC | [default to &quot;kT87TFbPtw6z100047&quot;]
- **paymentCardReferenceId** | **String**| A system generated unique identifier for the Payment card enrolled for the Member | [default to &quot;5f0d07c1-6fc4-4e74-9152-0e20bb7104d9&quot;]
- **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding | [optional] [default to &quot;108d9290-5516-4235-ac0d-fddb04c6b003&quot;]
+ **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding |
+ **memberReferenceId** | **String**| Unique reference key for a member |
+ **paymentCardReferenceId** | **String**| Unique reference key for a member&#39;s payment card |
 
 ### Return type
 
@@ -214,13 +214,13 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Payment Card successfully fetched |  -  |
-**400** | Member reference id not found |  -  |
+**400** | Member reference id should not be blank |  -  |
 **401** | Unauthorized access to information |  -  |
 **500** | Service not available |  -  |
 
 <a name="getPaymentCards"></a>
 # **getPaymentCards**
-> List&lt;PaymentCardDetails&gt; getPaymentCards(memberReferenceId, xMerchantKey)
+> PaymentCardDetails getPaymentCards(xMerchantKey, memberReferenceId)
 
 Get all payment cards for a member
 
@@ -238,13 +238,13 @@ import com.mastercard.developer.mastercard_loyalty_connect_client.api.PaymentCar
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://api.mastercard.com/mlc/api");
+    defaultClient.setBasePath("http://api.mastercard.com");
 
     PaymentCardApi apiInstance = new PaymentCardApi(defaultClient);
-    String memberReferenceId = "\"kT87TFbPtw6z100047\""; // String | A system generated unique identifier for the Member enrolled in MLC
-    String xMerchantKey = "\"108d9290-5516-4235-ac0d-fddb04c6b003\""; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
+    String xMerchantKey = 108d9290-5516-4235-ac0d-fddb04c6b003; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
+    String memberReferenceId = kT87TFbPtw6z100047; // String | Unique reference key for a member
     try {
-      List<PaymentCardDetails> result = apiInstance.getPaymentCards(memberReferenceId, xMerchantKey);
+      PaymentCardDetails result = apiInstance.getPaymentCards(xMerchantKey, memberReferenceId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentCardApi#getPaymentCards");
@@ -261,12 +261,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberReferenceId** | **String**| A system generated unique identifier for the Member enrolled in MLC | [default to &quot;kT87TFbPtw6z100047&quot;]
- **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding | [optional] [default to &quot;108d9290-5516-4235-ac0d-fddb04c6b003&quot;]
+ **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding |
+ **memberReferenceId** | **String**| Unique reference key for a member |
 
 ### Return type
 
-[**List&lt;PaymentCardDetails&gt;**](PaymentCardDetails.md)
+[**PaymentCardDetails**](PaymentCardDetails.md)
 
 ### Authorization
 
@@ -287,7 +287,7 @@ No authorization required
 
 <a name="updatePaymentCard"></a>
 # **updatePaymentCard**
-> updatePaymentCard(memberReferenceId, paymentCardReferenceId, paymentCard, xMerchantKey)
+> updatePaymentCard(xMerchantKey, memberReferenceId, paymentCardReferenceId, paymentCard)
 
 Update a payment card for a member
 
@@ -305,15 +305,15 @@ import com.mastercard.developer.mastercard_loyalty_connect_client.api.PaymentCar
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://api.mastercard.com/mlc/api");
+    defaultClient.setBasePath("http://api.mastercard.com");
 
     PaymentCardApi apiInstance = new PaymentCardApi(defaultClient);
-    String memberReferenceId = "\"kT87TFbPtw6z100047\""; // String | A system generated unique identifier for the Member enrolled in MLC
-    String paymentCardReferenceId = "\"5f0d07c1-6fc4-4e74-9152-0e20bb7104d9\""; // String | A system generated unique identifier for the Payment card enrolled for the Member
+    String xMerchantKey = 108d9290-5516-4235-ac0d-fddb04c6b003; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
+    String memberReferenceId = kT87TFbPtw6z100047; // String | Unique reference key for a member
+    String paymentCardReferenceId = 5f0d07c1-6fc4-4e74-9152-0e20bb7104d9; // String | Unique reference key for a member's payment card
     PaymentCard paymentCard = new PaymentCard(); // PaymentCard | Contains payment card details
-    String xMerchantKey = "\"108d9290-5516-4235-ac0d-fddb04c6b003\""; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
     try {
-      apiInstance.updatePaymentCard(memberReferenceId, paymentCardReferenceId, paymentCard, xMerchantKey);
+      apiInstance.updatePaymentCard(xMerchantKey, memberReferenceId, paymentCardReferenceId, paymentCard);
     } catch (ApiException e) {
       System.err.println("Exception when calling PaymentCardApi#updatePaymentCard");
       System.err.println("Status code: " + e.getCode());
@@ -329,10 +329,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberReferenceId** | **String**| A system generated unique identifier for the Member enrolled in MLC | [default to &quot;kT87TFbPtw6z100047&quot;]
- **paymentCardReferenceId** | **String**| A system generated unique identifier for the Payment card enrolled for the Member | [default to &quot;5f0d07c1-6fc4-4e74-9152-0e20bb7104d9&quot;]
+ **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding |
+ **memberReferenceId** | **String**| Unique reference key for a member |
+ **paymentCardReferenceId** | **String**| Unique reference key for a member&#39;s payment card |
  **paymentCard** | [**PaymentCard**](PaymentCard.md)| Contains payment card details |
- **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding | [optional] [default to &quot;108d9290-5516-4235-ac0d-fddb04c6b003&quot;]
 
 ### Return type
 
@@ -350,8 +350,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Payment Card is successfully updated |  -  |
-**204** | No Content |  -  |
+**204** | Payment Card is successfully updated |  -  |
 **400** | Member reference id not found |  -  |
 **401** | Unauthorized access to information |  -  |
 **500** | Service not available |  -  |

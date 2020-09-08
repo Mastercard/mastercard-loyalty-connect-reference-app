@@ -72,7 +72,7 @@ public class MemberMerchant {
                                                                                      MerchantLoyaltyProgram merchantLoyaltyProgram) throws ApiException {
         MemberMerchantApi api = new MemberMerchantApi(apiClient);
         String xMerchantKey = MlcConfig.X_MERCHANT_KEY;
-        MerchantLoyaltyProgramResponse response = api.joinOrConnectMerchantLoyaltyProgram(memberReferenceId, merchantLoyaltyProgram, xMerchantKey);
+        MerchantLoyaltyProgramResponse response = api.joinOrConnectMerchantLoyaltyProgram(xMerchantKey, memberReferenceId, merchantLoyaltyProgram);
         logger.info("Response of joinOrConnectMerchantLoyaltyProgram " + response.toString());
         return response;
     }
@@ -85,11 +85,11 @@ public class MemberMerchant {
      * @throws ApiException if the Api call fails
      */
     public static void updateMerchantLoyaltyProgram(ApiClient apiClient, String memberMerchantReferenceId,
-                                             String memberReferenceId,
-                                             LoyaltyProgram loyaltyProgram) throws ApiException {
+                                                    String memberReferenceId,
+                                                    LoyaltyProgram loyaltyProgram) throws ApiException {
         MemberMerchantApi api = new MemberMerchantApi(apiClient);
         String xMerchantKey = MlcConfig.X_MERCHANT_KEY;
-        api.updateMerchantLoyaltyProgram(memberReferenceId, memberMerchantReferenceId, loyaltyProgram, xMerchantKey);
+        api.updateMerchantLoyaltyProgram(xMerchantKey, memberReferenceId, memberMerchantReferenceId, loyaltyProgram);
         logger.info("Merchant Loyalty Program Updated!");
     }
 }

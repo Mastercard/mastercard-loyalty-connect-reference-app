@@ -1,10 +1,10 @@
 # mastercard-loyalty-connect-client
 
 Mastercard Loyalty Connect Service
-- API version: 1.0
-  - Build date: 2020-04-30T11:15:32.100+05:30[Asia/Calcutta]
+- API version: 2.2.1
+  - Build date: 2020-09-07T19:05:09.264+05:30[Asia/Calcutta]
 
-Rest Service for connecting payment cards with loyalty programs
+Connecting payment and retail loyalty into a single checkout experience
 
   For more information, please visit [https://developer.mastercard.com](https://developer.mastercard.com)
 
@@ -78,22 +78,20 @@ import com.mastercard.developer.mastercard_loyalty_connect_client.ApiClient;
 import com.mastercard.developer.mastercard_loyalty_connect_client.ApiException;
 import com.mastercard.developer.mastercard_loyalty_connect_client.Configuration;
 import com.mastercard.developer.mastercard_loyalty_connect_client.models.*;
-import com.mastercard.developer.mastercard_loyalty_connect_client.api.BusinessPartnerLocationsApi;
+import com.mastercard.developer.mastercard_loyalty_connect_client.api.BusinessPartnerStoresApi;
 
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://api.mastercard.com/mlc/api");
+    defaultClient.setBasePath("http://api.mastercard.com");
 
-    BusinessPartnerLocationsApi apiInstance = new BusinessPartnerLocationsApi(defaultClient);
-    String locationId = "\"G3243423J4534\""; // String | Business Partner Location Details identification associated with payment terminal
-    String terminalId = "\"K42398732L3290\""; // String | Payment Terminal Identification.
-    BusinessPartnerLocationDetails businessPartnerLocationDetails = new BusinessPartnerLocationDetails(); // BusinessPartnerLocationDetails | Enroll a business partner location
+    BusinessPartnerStoresApi apiInstance = new BusinessPartnerStoresApi(defaultClient);
+    BusinessPartnerStoreDetails businessPartnerStoreDetails = new BusinessPartnerStoreDetails(); // BusinessPartnerStoreDetails | 
     try {
-      BusinessPartnerLocationsResponse result = apiInstance.createOrUpdateBusinessPartnerLocations(locationId, terminalId, businessPartnerLocationDetails);
+      BusinessPartnerStoreResponse result = apiInstance.createOrUpdateBusinessPartnerLocations(businessPartnerStoreDetails);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling BusinessPartnerLocationsApi#createOrUpdateBusinessPartnerLocations");
+      System.err.println("Exception when calling BusinessPartnerStoresApi#createOrUpdateBusinessPartnerLocations");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -106,11 +104,11 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://api.mastercard.com/mlc/api*
+All URIs are relative to *http://api.mastercard.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*BusinessPartnerLocationsApi* | [**createOrUpdateBusinessPartnerLocations**](docs/BusinessPartnerLocationsApi.md#createOrUpdateBusinessPartnerLocations) | **POST** /business-partner-locations/{location_id}/terminals/{terminal_id} | Store company location details
+*BusinessPartnerStoresApi* | [**createOrUpdateBusinessPartnerLocations**](docs/BusinessPartnerStoresApi.md#createOrUpdateBusinessPartnerLocations) | **POST** /business-partner-stores | Store company location details
 *LoyaltyConnectApi* | [**deleteLoyaltyConnect**](docs/LoyaltyConnectApi.md#deleteLoyaltyConnect) | **DELETE** /members/{member_reference_id}/loyalty-connects/{loyalty_connect_reference_id} | Disconnects a specific payment card and Loyalty ID for a member
 *LoyaltyConnectApi* | [**enrollLoyaltyConnect**](docs/LoyaltyConnectApi.md#enrollLoyaltyConnect) | **POST** /members/{member_reference_id}/loyalty-connects | Connects payment card and Loyalty ID for a member
 *LoyaltyConnectApi* | [**getLoyaltyConnect**](docs/LoyaltyConnectApi.md#getLoyaltyConnect) | **GET** /members/{member_reference_id}/loyalty-connects/{loyalty_connect_reference_id} | Get a specific Loyalty ID and payment card connection details for a member
@@ -135,13 +133,22 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
- - [BusinessPartnerLocationDetails](docs/BusinessPartnerLocationDetails.md)
- - [BusinessPartnerLocationsResponse](docs/BusinessPartnerLocationsResponse.md)
+ - [Address](docs/Address.md)
+ - [Business](docs/Business.md)
+ - [BusinessPartnerStoreDetails](docs/BusinessPartnerStoreDetails.md)
+ - [BusinessPartnerStoreResponse](docs/BusinessPartnerStoreResponse.md)
+ - [Company](docs/Company.md)
+ - [Coordinates](docs/Coordinates.md)
+ - [Creation](docs/Creation.md)
+ - [Datetime](docs/Datetime.md)
+ - [Daytime](docs/Daytime.md)
  - [DetailItem](docs/DetailItem.md)
+ - [Device](docs/Device.md)
  - [EnrollLoyaltyConnectResponse](docs/EnrollLoyaltyConnectResponse.md)
  - [Error](docs/Error.md)
  - [ErrorItem](docs/ErrorItem.md)
  - [Errors](docs/Errors.md)
+ - [Key](docs/Key.md)
  - [LoyaltyConnect](docs/LoyaltyConnect.md)
  - [LoyaltyConnectResponse](docs/LoyaltyConnectResponse.md)
  - [LoyaltyProgram](docs/LoyaltyProgram.md)
@@ -160,6 +167,9 @@ Class | Method | HTTP request | Description
  - [MerchantLoyaltyProgram](docs/MerchantLoyaltyProgram.md)
  - [MerchantLoyaltyProgramResponse](docs/MerchantLoyaltyProgramResponse.md)
  - [MerchantLoyaltyProgramSearchResponse](docs/MerchantLoyaltyProgramSearchResponse.md)
+ - [Meta](docs/Meta.md)
+ - [Modification](docs/Modification.md)
+ - [Path](docs/Path.md)
  - [PaymentCard](docs/PaymentCard.md)
  - [PaymentCardAlreadyEnrolledError](docs/PaymentCardAlreadyEnrolledError.md)
  - [PaymentCardAlreadyEnrolledErrorErrors](docs/PaymentCardAlreadyEnrolledErrorErrors.md)
@@ -169,14 +179,16 @@ Class | Method | HTTP request | Description
  - [ServiceUnAvailableError](docs/ServiceUnAvailableError.md)
  - [ServiceUnAvailableErrorErrors](docs/ServiceUnAvailableErrorErrors.md)
  - [ServiceUnAvailableErrorItem](docs/ServiceUnAvailableErrorItem.md)
+ - [Store](docs/Store.md)
+ - [Telephone](docs/Telephone.md)
  - [Transaction](docs/Transaction.md)
  - [TransactionKsnError](docs/TransactionKsnError.md)
  - [TransactionKsnErrorErrors](docs/TransactionKsnErrorErrors.md)
  - [TransactionKsnErrorItem](docs/TransactionKsnErrorItem.md)
  - [TransactionResponse](docs/TransactionResponse.md)
- - [UnauthAccessError](docs/UnauthAccessError.md)
- - [UnauthAccessErrorErrors](docs/UnauthAccessErrorErrors.md)
- - [UnauthAccessErrorItem](docs/UnauthAccessErrorItem.md)
+ - [UnAuthAccessError](docs/UnAuthAccessError.md)
+ - [UnAuthAccessErrorErrors](docs/UnAuthAccessErrorErrors.md)
+ - [UnAuthAccessErrorItem](docs/UnAuthAccessErrorItem.md)
 
 
 ## Documentation for Authorization

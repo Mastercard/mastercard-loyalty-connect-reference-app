@@ -6,9 +6,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**bankCardNumber** | **String** | Masked Payment Card number connected by the user in MLC | 
-**bankCardProduct** | **String** | Card product assigned by the Issuer for the payment card |  [optional]
-**paymentCardReferenceId** | **String** | A system generated unique identifier for the Payment card enrolled for the Member | 
+**bankCardNumber** | **String** | Payment Card number that represents a valid card the MLC user wants to connect | 
+**bankCardProduct** | **String** | Card product assigned by the Issuer for the payment card | 
+**paymentCardReferenceId** | **String** | Unique reference key for a member&#39;s payment card | 
 
 
 

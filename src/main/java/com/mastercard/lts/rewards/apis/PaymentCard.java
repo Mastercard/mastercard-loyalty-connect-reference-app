@@ -26,7 +26,7 @@ public class PaymentCard {
                                                         com.mastercard.developer.mastercard_loyalty_connect_client.model.PaymentCard paymentCard) throws ApiException {
         PaymentCardApi api = new PaymentCardApi(apiClient);
         String xMerchantKey = MlcConfig.X_MERCHANT_KEY;
-        PaymentCardResponse response = api.enrollPaymentCard(memberReferenceId, paymentCard, xMerchantKey);
+        PaymentCardResponse response = api.enrollPaymentCard(xMerchantKey, memberReferenceId, paymentCard);
         logger.info("Response of enrollPaymentCard api " + response.toString());
         return response;
     }
@@ -67,10 +67,10 @@ public class PaymentCard {
      *
      * @throws ApiException if the Api call fails
      */
-    public static List<PaymentCardDetails> getPaymentCards(ApiClient apiClient, String memberReferenceId) throws ApiException {
+    public static PaymentCardDetails getPaymentCards(ApiClient apiClient, String memberReferenceId) throws ApiException {
         PaymentCardApi api = new PaymentCardApi(apiClient);
         String xMerchantKey = MlcConfig.X_MERCHANT_KEY;
-        List<PaymentCardDetails> response = api.getPaymentCards(memberReferenceId, xMerchantKey);
+        PaymentCardDetails response = api.getPaymentCards(xMerchantKey, memberReferenceId);
         logger.info("Response of get all Payment Cards api " + response.toString());
         return response;
     }
@@ -83,12 +83,12 @@ public class PaymentCard {
      * @throws ApiException if the Api call fails
      */
     public static void updatePaymentCard(ApiClient apiClient,
-                                             String memberReferenceId,
-                                             String paymentCardReferenceId,
-                                             com.mastercard.developer.mastercard_loyalty_connect_client.model.PaymentCard paymentCard) throws ApiException {
+                                         String memberReferenceId,
+                                         String paymentCardReferenceId,
+                                         com.mastercard.developer.mastercard_loyalty_connect_client.model.PaymentCard paymentCard) throws ApiException {
         PaymentCardApi api = new PaymentCardApi(apiClient);
         String xMerchantKey = MlcConfig.X_MERCHANT_KEY;
-        api.updatePaymentCard(memberReferenceId, paymentCardReferenceId, paymentCard, xMerchantKey);
+        api.updatePaymentCard( xMerchantKey,memberReferenceId, paymentCardReferenceId, paymentCard);
         logger.info("Payment Card Updated! ");
     }
 }

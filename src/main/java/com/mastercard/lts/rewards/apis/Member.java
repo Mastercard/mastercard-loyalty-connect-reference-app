@@ -24,7 +24,7 @@ public class Member {
     public static MemberMerchantResponse enrollMember(ApiClient apiClient,
                                                       com.mastercard.developer.mastercard_loyalty_connect_client.model.Member member) throws ApiException {
         MemberApi api = new MemberApi(apiClient);
-        MemberMerchantResponse memberMerchantResponse = api.enrollMember(member, MlcConfig.X_MERCHANT_KEY);
+        MemberMerchantResponse memberMerchantResponse = api.enrollMember(MlcConfig.X_MERCHANT_KEY, member);
         logger.info("Response of enroll Member api " + memberMerchantResponse.toString());
         return memberMerchantResponse;
     }
@@ -51,7 +51,7 @@ public class Member {
      */
     public static void updateMember(ApiClient apiClient, String memberReferenceId, MemberDetails memberDetails) throws ApiException {
         MemberApi api = new MemberApi(apiClient);
-        api.updateMember(memberReferenceId, memberDetails, MlcConfig.X_MERCHANT_KEY);
+        api.updateMember(MlcConfig.X_MERCHANT_KEY, memberReferenceId, memberDetails);
         logger.info("Member updated!");
     }
 

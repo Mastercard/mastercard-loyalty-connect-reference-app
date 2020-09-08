@@ -67,10 +67,10 @@ public class LoyaltyConnect {
      *
      * @throws ApiException if the Api call fails
      */
-    public static List<LoyaltyConnectResponse> getLoyaltyConnects(ApiClient apiClient, String memberReferenceId, String memberMerchantReferenceId, String paymentCardReferenceId) throws ApiException {
+    public static LoyaltyConnectResponse getLoyaltyConnects(ApiClient apiClient, String memberReferenceId, String memberMerchantReferenceId, String paymentCardReferenceId) throws ApiException {
         LoyaltyConnectApi api = new LoyaltyConnectApi(apiClient);
         String xMerchantKey = MlcConfig.X_MERCHANT_KEY;
-        List<LoyaltyConnectResponse> response = api.getLoyaltyConnects(memberReferenceId, xMerchantKey, memberMerchantReferenceId, paymentCardReferenceId);
+        LoyaltyConnectResponse response = api.getLoyaltyConnects(memberReferenceId, xMerchantKey, memberMerchantReferenceId, paymentCardReferenceId);
         logger.info("Response of get Loyalty Connect api based on memberMerchantReferenceId and paymentCardReferenceId " + response.toString());
         return response;
     }

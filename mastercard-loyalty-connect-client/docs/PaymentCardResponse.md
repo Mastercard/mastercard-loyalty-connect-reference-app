@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**paymentCardReferenceId** | **String** | A system generated unique identifier for the Payment card enrolled for the Member | 
+**paymentCardReferenceId** | **String** | Unique reference key for a member&#39;s payment card | 
 
 
 

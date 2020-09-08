@@ -1,6 +1,6 @@
 # MemberMerchantApi
 
-All URIs are relative to *http://api.mastercard.com/mlc/api*
+All URIs are relative to *http://api.mastercard.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="deleteMemberMerchantLoyaltyProgram"></a>
 # **deleteMemberMerchantLoyaltyProgram**
-> deleteMemberMerchantLoyaltyProgram(memberReferenceId, memberMerchantReferenceId, xMerchantKey)
+> deleteMemberMerchantLoyaltyProgram(xMerchantKey, memberReferenceId, memberMerchantReferenceId)
 
 Disconnect a loyalty program for a member
 
@@ -31,14 +31,14 @@ import com.mastercard.developer.mastercard_loyalty_connect_client.api.MemberMerc
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://api.mastercard.com/mlc/api");
+    defaultClient.setBasePath("http://api.mastercard.com");
 
     MemberMerchantApi apiInstance = new MemberMerchantApi(defaultClient);
-    String memberReferenceId = "\"kT87TFbPtw6z100047\""; // String | A system generated unique identifier for the Member enrolled in MLC
-    String memberMerchantReferenceId = "\"3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0\""; // String | A system generated unique identifier for the Member and Merchant Loyalty ID connection
-    String xMerchantKey = "\"108d9290-5516-4235-ac0d-fddb04c6b003\""; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
+    String xMerchantKey = 108d9290-5516-4235-ac0d-fddb04c6b003; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
+    String memberReferenceId = kT87TFbPtw6z100047; // String | Unique reference key for a member
+    String memberMerchantReferenceId = 3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0; // String | Unique reference key that identifies member and merchant loyalty program association
     try {
-      apiInstance.deleteMemberMerchantLoyaltyProgram(memberReferenceId, memberMerchantReferenceId, xMerchantKey);
+      apiInstance.deleteMemberMerchantLoyaltyProgram(xMerchantKey, memberReferenceId, memberMerchantReferenceId);
     } catch (ApiException e) {
       System.err.println("Exception when calling MemberMerchantApi#deleteMemberMerchantLoyaltyProgram");
       System.err.println("Status code: " + e.getCode());
@@ -54,9 +54,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberReferenceId** | **String**| A system generated unique identifier for the Member enrolled in MLC | [default to &quot;kT87TFbPtw6z100047&quot;]
- **memberMerchantReferenceId** | **String**| A system generated unique identifier for the Member and Merchant Loyalty ID connection | [default to &quot;3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0&quot;]
- **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding | [optional] [default to &quot;108d9290-5516-4235-ac0d-fddb04c6b003&quot;]
+ **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding |
+ **memberReferenceId** | **String**| Unique reference key for a member |
+ **memberMerchantReferenceId** | **String**| Unique reference key that identifies member and merchant loyalty program association |
 
 ### Return type
 
@@ -81,7 +81,7 @@ No authorization required
 
 <a name="getAllMemberMerchantLoyaltyProgram"></a>
 # **getAllMemberMerchantLoyaltyProgram**
-> MerchantLoyaltyProgramSearchResponse getAllMemberMerchantLoyaltyProgram(memberReferenceId, xMerchantKey, loyaltyId, merchantCode)
+> MerchantLoyaltyProgramSearchResponse getAllMemberMerchantLoyaltyProgram(xMerchantKey, memberReferenceId, loyaltyId, merchantCode)
 
 Get loyalty programs for a member
 
@@ -99,15 +99,15 @@ import com.mastercard.developer.mastercard_loyalty_connect_client.api.MemberMerc
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://api.mastercard.com/mlc/api");
+    defaultClient.setBasePath("http://api.mastercard.com");
 
     MemberMerchantApi apiInstance = new MemberMerchantApi(defaultClient);
-    String memberReferenceId = "\"kT87TFbPtw6z100047\""; // String | A system generated unique identifier for the Member enrolled in MLC
-    String xMerchantKey = "\"108d9290-5516-4235-ac0d-fddb04c6b003\""; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
-    String loyaltyId = "\"jsmith@mastercard.com\""; // String | Unique Identifier assigned by Merchant to its every Member
-    String merchantCode = "\"MLCMerchant\""; // String | Unique Identifier assigned by Mastercard to every partner onboarded with MLC
+    String xMerchantKey = 108d9290-5516-4235-ac0d-fddb04c6b003; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
+    String memberReferenceId = kT87TFbPtw6z100047; // String | Unique reference key for a member
+    String loyaltyId = vk@mastercard.com; // String | Loyalty Id represents unique member merchant association
+    String merchantCode = MLCMerchant; // String | Unique code assigned to a merchant on boarded with MLC
     try {
-      MerchantLoyaltyProgramSearchResponse result = apiInstance.getAllMemberMerchantLoyaltyProgram(memberReferenceId, xMerchantKey, loyaltyId, merchantCode);
+      MerchantLoyaltyProgramSearchResponse result = apiInstance.getAllMemberMerchantLoyaltyProgram(xMerchantKey, memberReferenceId, loyaltyId, merchantCode);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MemberMerchantApi#getAllMemberMerchantLoyaltyProgram");
@@ -124,10 +124,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberReferenceId** | **String**| A system generated unique identifier for the Member enrolled in MLC | [default to &quot;kT87TFbPtw6z100047&quot;]
- **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding | [optional] [default to &quot;108d9290-5516-4235-ac0d-fddb04c6b003&quot;]
- **loyaltyId** | **String**| Unique Identifier assigned by Merchant to its every Member | [optional] [default to &quot;jsmith@mastercard.com&quot;]
- **merchantCode** | **String**| Unique Identifier assigned by Mastercard to every partner onboarded with MLC | [optional] [default to &quot;MLCMerchant&quot;]
+ **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding |
+ **memberReferenceId** | **String**| Unique reference key for a member |
+ **loyaltyId** | **String**| Loyalty Id represents unique member merchant association | [optional]
+ **merchantCode** | **String**| Unique code assigned to a merchant on boarded with MLC | [optional]
 
 ### Return type
 
@@ -152,7 +152,7 @@ No authorization required
 
 <a name="getMemberMerchantLoyaltyProgram"></a>
 # **getMemberMerchantLoyaltyProgram**
-> MemberMerchantLoyaltyDetails getMemberMerchantLoyaltyProgram(memberReferenceId, memberMerchantReferenceId, xMerchantKey)
+> MemberMerchantLoyaltyDetails getMemberMerchantLoyaltyProgram(xMerchantKey, memberReferenceId, memberMerchantReferenceId)
 
 Get details for a specific Merchant Loyalty Program
 
@@ -170,14 +170,14 @@ import com.mastercard.developer.mastercard_loyalty_connect_client.api.MemberMerc
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://api.mastercard.com/mlc/api");
+    defaultClient.setBasePath("http://api.mastercard.com");
 
     MemberMerchantApi apiInstance = new MemberMerchantApi(defaultClient);
-    String memberReferenceId = "\"kT87TFbPtw6z100047\""; // String | A system generated unique identifier for the Member enrolled in MLC
-    String memberMerchantReferenceId = "\"3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0\""; // String | A system generated unique identifier for the Member and Merchant Loyalty ID connection
-    String xMerchantKey = "\"108d9290-5516-4235-ac0d-fddb04c6b003\""; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
+    String xMerchantKey = 108d9290-5516-4235-ac0d-fddb04c6b003; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
+    String memberReferenceId = kT87TFbPtw6z100047; // String | Unique reference key for a member
+    String memberMerchantReferenceId = 3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0; // String | Unique reference key that identifies member and merchant loyalty program association
     try {
-      MemberMerchantLoyaltyDetails result = apiInstance.getMemberMerchantLoyaltyProgram(memberReferenceId, memberMerchantReferenceId, xMerchantKey);
+      MemberMerchantLoyaltyDetails result = apiInstance.getMemberMerchantLoyaltyProgram(xMerchantKey, memberReferenceId, memberMerchantReferenceId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MemberMerchantApi#getMemberMerchantLoyaltyProgram");
@@ -194,9 +194,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberReferenceId** | **String**| A system generated unique identifier for the Member enrolled in MLC | [default to &quot;kT87TFbPtw6z100047&quot;]
- **memberMerchantReferenceId** | **String**| A system generated unique identifier for the Member and Merchant Loyalty ID connection | [default to &quot;3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0&quot;]
- **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding | [optional] [default to &quot;108d9290-5516-4235-ac0d-fddb04c6b003&quot;]
+ **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding |
+ **memberReferenceId** | **String**| Unique reference key for a member |
+ **memberMerchantReferenceId** | **String**| Unique reference key that identifies member and merchant loyalty program association |
 
 ### Return type
 
@@ -221,7 +221,7 @@ No authorization required
 
 <a name="joinOrConnectMerchantLoyaltyProgram"></a>
 # **joinOrConnectMerchantLoyaltyProgram**
-> MerchantLoyaltyProgramResponse joinOrConnectMerchantLoyaltyProgram(memberReferenceId, merchantLoyaltyProgram, xMerchantKey)
+> MerchantLoyaltyProgramResponse joinOrConnectMerchantLoyaltyProgram(xMerchantKey, memberReferenceId, merchantLoyaltyProgram)
 
 Enroll a member in a Merchant Loyalty Program
 
@@ -239,14 +239,14 @@ import com.mastercard.developer.mastercard_loyalty_connect_client.api.MemberMerc
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://api.mastercard.com/mlc/api");
+    defaultClient.setBasePath("http://api.mastercard.com");
 
     MemberMerchantApi apiInstance = new MemberMerchantApi(defaultClient);
-    String memberReferenceId = "\"kT87TFbPtw6z100047\""; // String | A system generated unique identifier for the Member enrolled in MLC
+    String xMerchantKey = 108d9290-5516-4235-ac0d-fddb04c6b003; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
+    String memberReferenceId = kT87TFbPtw6z100047; // String | Unique reference key for a member
     MerchantLoyaltyProgram merchantLoyaltyProgram = new MerchantLoyaltyProgram(); // MerchantLoyaltyProgram | Contains merchant loyalty program details
-    String xMerchantKey = "\"108d9290-5516-4235-ac0d-fddb04c6b003\""; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
     try {
-      MerchantLoyaltyProgramResponse result = apiInstance.joinOrConnectMerchantLoyaltyProgram(memberReferenceId, merchantLoyaltyProgram, xMerchantKey);
+      MerchantLoyaltyProgramResponse result = apiInstance.joinOrConnectMerchantLoyaltyProgram(xMerchantKey, memberReferenceId, merchantLoyaltyProgram);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MemberMerchantApi#joinOrConnectMerchantLoyaltyProgram");
@@ -263,9 +263,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberReferenceId** | **String**| A system generated unique identifier for the Member enrolled in MLC | [default to &quot;kT87TFbPtw6z100047&quot;]
+ **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding |
+ **memberReferenceId** | **String**| Unique reference key for a member |
  **merchantLoyaltyProgram** | [**MerchantLoyaltyProgram**](MerchantLoyaltyProgram.md)| Contains merchant loyalty program details |
- **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding | [optional] [default to &quot;108d9290-5516-4235-ac0d-fddb04c6b003&quot;]
 
 ### Return type
 
@@ -291,7 +291,7 @@ No authorization required
 
 <a name="updateMerchantLoyaltyProgram"></a>
 # **updateMerchantLoyaltyProgram**
-> updateMerchantLoyaltyProgram(memberReferenceId, memberMerchantReferenceId, loyaltyProgram, xMerchantKey)
+> updateMerchantLoyaltyProgram(xMerchantKey, memberReferenceId, memberMerchantReferenceId, loyaltyProgram)
 
 Update member Merchant Loyalty Program
 
@@ -309,15 +309,15 @@ import com.mastercard.developer.mastercard_loyalty_connect_client.api.MemberMerc
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://api.mastercard.com/mlc/api");
+    defaultClient.setBasePath("http://api.mastercard.com");
 
     MemberMerchantApi apiInstance = new MemberMerchantApi(defaultClient);
-    String memberReferenceId = "\"kT87TFbPtw6z100047\""; // String | Unique reference key for a member
-    String memberMerchantReferenceId = "\"3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0\""; // String | Unique reference key that identifies member and merchant loyalty program association
-    LoyaltyProgram loyaltyProgram = new LoyaltyProgram(); // LoyaltyProgram | loyaltyProgram
-    String xMerchantKey = "\"108d9290-5516-4235-ac0d-fddb04c6b003\""; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
+    String xMerchantKey = 108d9290-5516-4235-ac0d-fddb04c6b003; // String | Key assigned to a 'Merchant' Business Partner at the time of onboarding
+    String memberReferenceId = kT87TFbPtw6z100047; // String | Unique reference key for a member
+    String memberMerchantReferenceId = 3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0; // String | Unique reference key that identifies member and merchant loyalty program association
+    LoyaltyProgram loyaltyProgram = new LoyaltyProgram(); // LoyaltyProgram | 
     try {
-      apiInstance.updateMerchantLoyaltyProgram(memberReferenceId, memberMerchantReferenceId, loyaltyProgram, xMerchantKey);
+      apiInstance.updateMerchantLoyaltyProgram(xMerchantKey, memberReferenceId, memberMerchantReferenceId, loyaltyProgram);
     } catch (ApiException e) {
       System.err.println("Exception when calling MemberMerchantApi#updateMerchantLoyaltyProgram");
       System.err.println("Status code: " + e.getCode());
@@ -333,10 +333,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **memberReferenceId** | **String**| Unique reference key for a member | [default to &quot;kT87TFbPtw6z100047&quot;]
- **memberMerchantReferenceId** | **String**| Unique reference key that identifies member and merchant loyalty program association | [default to &quot;3ed6cfa1-f7d9-40ba-9a86-d443ad302ad0&quot;]
- **loyaltyProgram** | [**LoyaltyProgram**](LoyaltyProgram.md)| loyaltyProgram |
- **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding | [optional] [default to &quot;108d9290-5516-4235-ac0d-fddb04c6b003&quot;]
+ **xMerchantKey** | **String**| Key assigned to a &#39;Merchant&#39; Business Partner at the time of onboarding |
+ **memberReferenceId** | **String**| Unique reference key for a member |
+ **memberMerchantReferenceId** | **String**| Unique reference key that identifies member and merchant loyalty program association |
+ **loyaltyProgram** | [**LoyaltyProgram**](LoyaltyProgram.md)|  |
 
 ### Return type
 

@@ -6,7 +6,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**loyaltyConnectReferenceId** | **String** | A system generated unique identifier for the Member&#39;s Payment Card and Merchant Loyalty ID connection | 
+**loyaltyConnectReferenceId** | **String** | Unique reference key for the connection of a loyalty ID and payment card | 
 
 
 

@@ -1,6 +1,6 @@
 # TransactionApi
 
-All URIs are relative to *http://api.mastercard.com/mlc/api*
+All URIs are relative to *http://api.mastercard.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -27,7 +27,7 @@ import com.mastercard.developer.mastercard_loyalty_connect_client.api.Transactio
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://api.mastercard.com/mlc/api");
+    defaultClient.setBasePath("http://api.mastercard.com");
 
     TransactionApi apiInstance = new TransactionApi(defaultClient);
     Transaction transaction = new Transaction(); // Transaction | The payment card number and merchant code / identifier must be provided in the request body to retrieve the Loyalty ID

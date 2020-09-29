@@ -46,22 +46,23 @@ In the `mastercard-loyalty-connect-client`, go to `/target` and copy `mastercard
 This reference app describes one end to end flow for using MasterCard Loyalty Connect API's it skips some endpoints :
 1. Enroll Member and obtain memberReferenceId and memberMerchantReferenceId
 2. Get Member using memberReferenceId
-3. Enroll Payment Card using memberReferenceId and obtain paymentCardReferenceId
-4. Get Payment Card using memberReferenceId and paymentCardReferenceId
-5. Enroll Loyalty_Connect using memberReferenceId and obtain loyaltyConnectReferenceId 
-6. Get Loyalty Connect using memberReferenceId and loyaltyConnectReferenceId
-7. Enroll another Merchant Loyalty Program using memberReferenceId and obtain memberMerchantReferenceId
-8. Get Merchant LoyaltyProgram using memberReferenceId and memberMerchantReferenceId
-9. Get all Merchant Loyalty Program associated using memberReferenceId
-10. Update Merchant loyalty Program using memberReferenceId and memberMerchantReferenceId
-11. Get Member to fetch all details like it's associated Payment Card's, Merchant Loyalty Programs and Loyalty Connect
-12. Update Member details using memberReferenceId
-13. Get Member to verify updated member details using memberReferenceId  
-14. Delete Loyalty Connect using memberReferenceId and loyaltyConnectReferenceId
-15. Delete Payment Card using memberReferenceId and paymentCardReferenceId
-16. Get Member to verify Loyalty Connect and Payment Card got deleted or not
-17. Finally, delete Member to delete member using memberReferenceId
-18. Enroll business partner stores
+3. Search member using userId
+4. Enroll Payment Card using memberReferenceId and obtain paymentCardReferenceId
+5. Get Payment Card using memberReferenceId and paymentCardReferenceId
+6. Enroll Loyalty_Connect using memberReferenceId and obtain loyaltyConnectReferenceId 
+7. Get Loyalty Connect using memberReferenceId and loyaltyConnectReferenceId
+8. Enroll another Merchant Loyalty Program using memberReferenceId and obtain memberMerchantReferenceId
+9. Get Merchant LoyaltyProgram using memberReferenceId and memberMerchantReferenceId
+10. Get all Merchant Loyalty Program associated using memberReferenceId
+11. Update Merchant loyalty Program using memberReferenceId and memberMerchantReferenceId
+12. Get Member to fetch all details like it's associated Payment Card's, Merchant Loyalty Programs and Loyalty Connect
+13. Update Member details using memberReferenceId
+14. Get Member to verify updated member details using memberReferenceId  
+15. Delete Loyalty Connect using memberReferenceId and loyaltyConnectReferenceId
+16. Delete Payment Card using memberReferenceId and paymentCardReferenceId
+17. Get Member to verify Loyalty Connect and Payment Card got deleted or not
+18. Finally, delete Member to delete member using memberReferenceId
+19. Enroll business partner stores
 
 ## API Expected sample Response but values varies for reference id's
 ### Enroll Member
@@ -73,6 +74,34 @@ Expected response from MasterCard Loyalty Connect API:
 }
 ```
 ### Get Member
+Expected response from MasterCard Loyalty Connect API:
+```
+{
+    addressLine1: AddressLine 3
+    addressLine2: Rosemary garden
+    addressLine3: AddressLine 3
+    cityName: Nottingham
+    countryCode: UK
+    emailAddress: james.anderson@mastercard.com
+    firstName: James
+    lastName: Anderson
+    loyaltyConnectResponses: []
+    memberReferenceId: DUDeHlh48NOH1067649
+    merchantLoyaltyDetails: [ {
+        loyaltyId: james.anderson@mastercard.com
+        memberMerchantReferenceId: c49f2b32-efe0-4543-9e3c-669c09b12584
+        merchantCode: 989898
+        merchantName: Jmeter
+        pointBalance: null
+    }]
+    mobilePhoneNumber: +44 (0) 7970 225 256
+    paymentCards: []
+    postalCode: UK 2345
+    stateProvinceCode: NT
+    title: Mr
+}
+```
+### Search Member
 Expected response from MasterCard Loyalty Connect API:
 ```
 {

@@ -6,6 +6,7 @@ import com.mastercard.developer.mastercard_loyalty_connect_client.api.MemberApi;
 import com.mastercard.developer.mastercard_loyalty_connect_client.model.MemberDetails;
 import com.mastercard.developer.mastercard_loyalty_connect_client.model.MemberMerchantResponse;
 import com.mastercard.developer.mastercard_loyalty_connect_client.model.MemberResponse;
+import com.mastercard.developer.mastercard_loyalty_connect_client.model.MemberSearch;
 import com.mastercard.lts.rewards.config.MlcConfig;
 
 import java.util.logging.Logger;
@@ -66,5 +67,18 @@ public class Member {
         MemberApi api = new MemberApi(apiClient);
         api.deleteMember(memberReferenceId, MlcConfig.X_MERCHANT_KEY);
         logger.info("Member deleted!");
+    }
+
+    /**
+     * Search a member
+     * <p>
+     * Search a member in MLC. Every member is identified by the user id
+     *
+     * @throws ApiException if the Api call fails
+     */
+    public static void searchMember(ApiClient apiClient, MemberSearch memberSearch) throws ApiException {
+        MemberApi api = new MemberApi(apiClient);
+        MemberResponse response = api.searchMember(MlcConfig.X_MERCHANT_KEY, memberSearch);
+        logger.info("Response of search Member api " + response.toString());
     }
 }

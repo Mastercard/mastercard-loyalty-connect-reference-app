@@ -15,6 +15,7 @@ import java.util.List;
 import static com.mastercard.lts.rewards.apis.LoyaltyConnect.deleteLoyaltyConnect;
 import static com.mastercard.lts.rewards.apis.Member.deleteMember;
 import static com.mastercard.lts.rewards.apis.Member.getMember;
+import static com.mastercard.lts.rewards.apis.Member.searchMember;
 import static com.mastercard.lts.rewards.apis.MemberMerchant.getAllMemberMerchantLoyaltyProgram;
 import static com.mastercard.lts.rewards.apis.MemberMerchant.getMemberMerchantLoyaltyProgram;
 
@@ -25,6 +26,8 @@ public class MlcService {
         MemberMerchantResponse memberMerchantResponse = enrollMember(apiClient);
 
         getMember(apiClient, memberMerchantResponse.getMemberReferenceId());
+
+        searchMember(apiClient, getMemberSearch());
 
         PaymentCardResponse paymentCardResponse = enrollPaymentCard(apiClient, memberMerchantResponse.getMemberReferenceId());
 
@@ -44,9 +47,13 @@ public class MlcService {
 
         getMember(apiClient, memberMerchantResponse.getMemberReferenceId());
 
+        searchMember(apiClient, getMemberSearch());
+
         updateMember(apiClient, memberMerchantResponse.getMemberReferenceId());
 
         getMember(apiClient, memberMerchantResponse.getMemberReferenceId());
+
+        searchMember(apiClient, getMemberSearch());
 
         deleteLoyaltyConnect(apiClient, memberMerchantResponse.getMemberReferenceId(), enrollLoyaltyConnectResponse.getLoyaltyConnectReferenceId());
 
@@ -54,9 +61,17 @@ public class MlcService {
 
         getMember(apiClient, memberMerchantResponse.getMemberReferenceId());
 
+        searchMember(apiClient, getMemberSearch());
+
         deleteMember(apiClient, memberMerchantResponse.getMemberReferenceId());
 
         createBusinessPartnerStores(apiClient);
+    }
+
+    private static MemberSearch getMemberSearch() {
+        MemberSearch memberSearch = new MemberSearch();
+        memberSearch.setUserId("james.anderson@mastercard.com");
+        return memberSearch;
     }
 
     private static void createBusinessPartnerStores(ApiClient apiClient) throws ApiException {

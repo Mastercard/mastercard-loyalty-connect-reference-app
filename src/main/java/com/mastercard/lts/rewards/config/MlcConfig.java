@@ -10,11 +10,11 @@ import java.security.PrivateKey;
 
 public class MlcConfig {
 
+    public static final String X_MERCHANT_KEY = "your_merchant_key";
+    public static final String PARTNER_CODE = "your_partner_code";
     private static final String CONSUMER_KEY = "your_consumer_key";
     private static final String KEYSTORE_PASSWORD = "your_keystore_password";
-    public static final String X_MERCHANT_KEY = "your_merchant_key";
     private static final String KEY_ALIAS = "your_key_alias";
-    public static final String PARTNER_CODE = "your_partner_code";
     private static final String P12_KEY_FILE_NAME = "mastercard-loyalty-connect-sandbox.p12";
     private static final ClassLoader loader = MlcConfig.class.getClassLoader();
     private static final String API_BASE_PATH = "https://sandbox.api.mastercard.com/mlc/api";

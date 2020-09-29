@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="33fe682e-81fb-4e06-a5da-4679ea2b6d13" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/MemberSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/mastercard-loyalty-connect-client.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/MemberApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/MemberApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/test/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/MemberApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/test/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/MemberApiTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mastercard-loyalty-connect-reference.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/apis/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/apis/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/config/MlcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/config/MlcConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Loyalty_Connect.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Loyalty_Connect.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/MasterCard_Loyalty_Connect.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MasterCard_Loyalty_Connect.yaml" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/mastercard-loyalty-connect-client/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Member.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/apis/Member.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="850">
+              <caret line="74" column="72" selection-start-line="74" selection-start-column="72" selection-end-line="74" selection-end-column="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MemberApiTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/test/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/MemberApiTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="108" column="5" selection-start-line="93" selection-start-column="4" selection-end-line="108" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BusinessPartnerStoresApiTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/test/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/BusinessPartnerStoresApiTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="124">
+              <caret line="29" column="3" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#1686#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MlcConfig.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/config/MlcConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2975">
+              <caret line="74" column="38" lean-forward="true" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Authentication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/auth/Authentication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="408">
+                <caret line="48" column="29" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MlcService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/service/MlcService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="86" column="40" selection-start-line="86" selection-start-column="40" selection-end-line="86" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MasterCard_Loyalty_Connect.yaml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/MasterCard_Loyalty_Connect.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="43">
+              <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/PaymentCardApi.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/MerchantApi.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/TransactionApi.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/MemberMerchantApi.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/MemberApi.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/LoyaltyConnectApi.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/BusinessPartnerStoresApi.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/auth/HttpBasicAuth.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/auth/HttpBearerAuth.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/auth/Authentication.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/auth/ApiKeyAuth.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/ApiCallback.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/ApiClient.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/ApiException.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/ApiResponse.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/GzipRequestInterceptor.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/JSON.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/Pair.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/ProgressRequestBody.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/ProgressResponseBody.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/ServerConfiguration.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/ServerVariable.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/StringUtil.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Address.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Business.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/BusinessPartnerStoreResponse.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Company.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Coordinates.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Creation.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Datetime.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Daytime.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/DetailItem.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Device.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/EnrollLoyaltyConnectResponse.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Error.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/ErrorItem.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Errors.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Key.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/LoyaltyConnect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/apis/LoyaltyConnect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/apis/PaymentCard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/apis/MemberMerchant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/apis/BusinessPartnerLocation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/apis/BusinessPartnerStores.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/service/MlcService.java" />
+        <option value="$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/MemberSearch.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/Loyalty_Connect.yaml" />
+        <option value="$PROJECT_DIR$/src/main/resources/MasterCard_Loyalty_Connect.yaml" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/apis/Member.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/config/MlcConfig.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="C:\Users\e086113\m2\repository" />
+        <option name="mavenHome" value="$USER_HOME$/apache-maven-3.6.0" />
+        <option name="userSettingsFile" value="C:\Users\e086113\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="linked-mastercard-loyalty-connect-reference" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="linked-mastercard-loyalty-connect-reference" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="mastercard-loyalty-connect-client" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="mastercard-loyalty-connect-client" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="width" value="1550" />
+    <option name="height" value="835" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="mastercard-loyalty-connect-reference" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mastercard-loyalty-connect-reference" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mastercard-loyalty-connect-reference" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mastercard-loyalty-connect-reference" type="462c0819:PsiDirectoryNode" />
+              <item name="mastercard-loyalty-connect-client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mastercard-loyalty-connect-reference" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mastercard-loyalty-connect-reference" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mastercard-loyalty-connect-reference" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mastercard-loyalty-connect-reference" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mastercard-loyalty-connect-reference" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mastercard-loyalty-connect-reference" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mastercard-loyalty-connect-reference" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mastercard-loyalty-connect-reference" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="rewards" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mastercard-loyalty-connect-reference" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mastercard-loyalty-connect-reference" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="rewards" type="462c0819:PsiDirectoryNode" />
+              <item name="apis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mastercard-loyalty-connect-reference" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mastercard-loyalty-connect-reference" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="rewards" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mastercard-loyalty-connect-reference" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mastercard-loyalty-connect-reference" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="rewards" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\e086113\IdeaProjects\mastercard-loyalty-connect-reference\mastercard-loyalty-connect-client\src\main\test\java\com\mastercard\developer\mastercard_loyalty_connect_client\api" />
+      <recent name="C:\Users\e086113\IdeaProjects\mastercard-loyalty-connect-reference" />
+      <recent name="C:\Users\e086113\IdeaProjects\mastercard-loyalty-connect-reference\mastercard-loyalty-connect-client\src\main\java\com\mastercard\developer\mastercard_loyalty_connect_client\model" />
+      <recent name="C:\Users\e086113\IdeaProjects\mastercard-loyalty-connect-reference\mastercard-loyalty-connect-client\src\main\java\com\mastercard\developer\mastercard_loyalty_connect_client\api" />
+      <recent name="C:\Users\e086113\IdeaProjects\mastercard-loyalty-connect-reference\mastercard-loyalty-connect-client\src\main" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="33fe682e-81fb-4e06-a5da-4679ea2b6d13" name="Default" comment="" />
+      <created>1589178278070</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589178278070</updated>
+      <workItem from="1589178280050" duration="1955000" />
+      <workItem from="1589881844172" duration="561000" />
+      <workItem from="1589888347842" duration="202000" />
+      <workItem from="1598864966572" duration="3469000" />
+      <workItem from="1599211966537" duration="3509000" />
+      <workItem from="1599459661088" duration="10522000" />
+      <workItem from="1601360174757" duration="2048000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="22266000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="3" weight="0.3295302" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.50948906" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.27445257" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3067114" />
+      <window_info anchor="bottom" id="SonarLint" order="7" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="SonarQube" order="7" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info id="Image Layers" order="3" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.50948906" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.27445257" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="9" />
+      <window_info anchor="bottom" id="SonarLint" order="10" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.3295302" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3067114" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="bottom" id="SonarQube" order="13" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/GzipRequestInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/JSON.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/Pair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/ProgressRequestBody.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/ProgressResponseBody.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/ServerConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/ServerVariable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/StringUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Address.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Business.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/BusinessPartnerStoreResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="22" column="3" lean-forward="true" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Company.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-663">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Coordinates.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Creation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Datetime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Daytime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/DetailItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Device.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/EnrollLoyaltyConnectResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Error.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/ErrorItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Errors.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-238">
+          <caret line="43" column="7" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/Key.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/LoyaltyConnect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/apis/Merchant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/apis/PaymentCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1445">
+          <caret line="93" column="1" selection-start-line="93" selection-start-column="1" selection-end-line="93" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/apis/MemberMerchant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="569">
+          <caret line="86" column="106" selection-start-line="86" selection-start-column="106" selection-end-line="86" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/test/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/UnauthAccessErrorErrorsTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/apis/LoyaltyConnect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="57" column="57" selection-start-line="57" selection-start-column="57" selection-end-line="57" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/LoyaltyConnectApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6749">
+          <caret line="430" column="34" selection-start-line="430" selection-start-column="34" selection-end-line="430" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/BusinessPartnerStoresApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="68" column="40" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1529#1530#0" expanded="true" />
+            <element signature="e#1579#1580#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/TransactionApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="92" column="5" selection-start-line="92" selection-start-column="5" selection-end-line="92" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/.openapi-generator/VERSION">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/apis/BusinessPartnerStores.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="69" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/model/MemberSearch.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/MemberApi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="736" column="7" selection-start-line="736" selection-start-column="7" selection-end-line="736" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-1356">
+            <caret line="20" selection-start-line="20" selection-end-line="20" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/MastercardLoyaltyConnectReference.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mastercard-loyalty-connect-config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Loyalty_Connect.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/MasterCard_Loyalty_Connect.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="43">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="408">
+            <caret line="48" column="29" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/test/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/BusinessPartnerStoresApiTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="29" column="3" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#1686#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/test/java/com/mastercard/developer/mastercard_loyalty_connect_client/api/MemberApiTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="108" column="5" selection-start-line="93" selection-start-column="4" selection-end-line="108" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/apis/Member.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="74" column="72" selection-start-line="74" selection-start-column="72" selection-end-line="74" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/service/MlcService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="86" column="40" selection-start-line="86" selection-start-column="40" selection-end-line="86" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/src/main/java/com/mastercard/developer/mastercard_loyalty_connect_client/auth/Authentication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/mastercard/lts/rewards/config/MlcConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mastercard-loyalty-connect-client/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2975">
+          <caret line="74" column="38" lean-forward="true" selection-start-line="74" selection-start-column="38" selection-end-line="74" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

@@ -434,7 +434,7 @@ paths:
         tags:
           - Member
         summary: Searches a member
-        description: Searches a member in MLC, based on the user id provided in the input. The user id is considered case sensitive for searching the member i.e. 'vk@mastercard.com' is a different user id from 'VK@mastercard.com'.
+        description: Searches a member in MLC based on the user id provided in the input and returns all details related to the member, if found. The user id is considered case sensitive for searching the member i.e. 'vk@mastercard.com' is a different user id from 'VK@mastercard.com'.
         operationId: searchMember
         parameters:
           - name: X-Merchant-Key

@@ -433,8 +433,8 @@ paths:
       post:
         tags:
           - Member
-        summary: Search a member
-        description: Search a member in MLC. Every member is identified by the user id
+        summary: Searches a member
+        description: Searches a member in MLC, based on the user id provided in the input. The user id is considered case sensitive for searching the member i.e. 'vk@mastercard.com' is a different user id from 'VK@mastercard.com'.
         operationId: searchMember
         parameters:
           - name: X-Merchant-Key
@@ -481,7 +481,7 @@ paths:
       tags:
         - Member
       summary: Enroll a member
-      description: Enrolls a new member in MLC. Every member is identified by the business partner (partner code) and member identifier (user id). The member may or may not provide other demographic information for enrollment.
+      description: Enrolls a new member in MLC. Every member is identified by the business partner (partner code) and member identifier (user id). The member may or may not provide other demographic information for enrollment. The user id is considered case sensitive for member enrollment i.e. 'vk@mastercard.com' and 'VK@mastercard.com' will result in 2 members being enrolled.
       operationId: enrollMember
       parameters:
         - name: X-Merchant-Key
